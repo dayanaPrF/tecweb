@@ -41,9 +41,39 @@
             echo '<h2> Ejercicio 2</h2>';
             
             //Definicion de variables
+            $a = "ManejadorSQL";
+            $b = 'MySQL';
+            $c = &$a;
+
+            echo '<b>Contenido de las variables:</b><br>';
+            echo '<ul><li>$a = '.$a.'</li>';
+            echo '<li>$b = '.$b.'</li>';
+            echo '<li>$c = '.$c.'</li>';
+            echo '</ul>';
+
+            //Variables modificadas
+            $a = "PHP server";
+            $b = &$a;
+
+            echo '<b>Contenido de las variables modificadas:</b><br>';
+            echo '<ul><li>$a = '.$a.'</li>';
+            echo '<li>$b = '.$b.'</li>';
+            echo '<li>$c = '.$c.'</li>';
+            echo '</ul>';
+
+            //Descripcion de lo sucedido
+            echo "<b>Explicacion:</b><br>";
+            echo 'Las primeras asignaciones asignan directamente valores a las variables <i>$a, $b y $ c</i> 
+            (donde $c contiene la referencia del contenido de $a por medio del operador &). En el segundo bloque se le asigna un 
+            nuevo valor a $a, siendo este <b>PHP server</b>, posteriormente se le asigna el contenido de $a
+            a la variable $b, y, ya que $c ya se le asignó el contenido de $a anteriormente, ahora se le asigna el 
+            nuevo contenido, por lo que todas las variables imprimen <b>PHP server</b><br>';
 
 
-
+            //Liberar variables del ejercicio 2
+            unset($a);
+            unset($b);
+            unset($c);
 
         ?>
     </body>
