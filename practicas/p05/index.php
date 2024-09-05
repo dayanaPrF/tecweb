@@ -75,6 +75,35 @@
             unset($b);
             unset($c);
 
+            //EJERCICIO 3
+            echo '<h2> Ejercicio 3</h2>';
+
+            //Definicion de variables
+            $a = "PHP5";
+            echo 'Valor de $a= '.$a.'<br>';
+
+            $z[] = &$a;
+            echo 'Valor de $z[]=';
+            var_dump($z);
+            echo '<br>';
+
+            $b = "5a version de PHP";
+            echo 'Valor de $b= '.$b.'<br>';
+
+            $c = $b*10;
+            echo 'Valor de $c= '.$c.'<br>';
+
+            $a .= $b;
+            echo 'Valor de $a= '.$a.'<br>';
+
+            $b *= $c;
+            echo 'Valor de $b= '.$b.'<br>';
+
+            $z[0] = "MySQL";
+            echo 'Valor de $z[]=';
+            var_dump($z);
+            echo '<br>';
+
         ?>
     </body>
 </html>
