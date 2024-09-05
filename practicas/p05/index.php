@@ -225,6 +225,17 @@
             unset($e);
             unset($f);
 
+          
+            
+            //EJERCICIO 7
+            echo '<h2> Ejercicio 7</h2>';
+
+            echo 'Versión de PHP y Apache: '.$_SERVER['SERVER_SOFTWARE'].'<br>';
+            echo 'Versión del sistema operativo (servidor): '.$_SERVER['SERVER_NAME'].'<br>';
+            echo 'Idioma del navegador (cliente): '.$_SERVER['HTTP_ACCEPT_LANGUAGE'].'<br>';
+
+
+
         ?>
     </body>
 </html>
