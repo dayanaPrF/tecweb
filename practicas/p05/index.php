@@ -9,9 +9,8 @@
         <?php
             echo '<h1> EJERCICIOS PRACTICA 5</h1>';
 
+            //EJERCICIO 1
             echo '<h2> Ejercicio 1</h2>';
-            echo 'Determina cuál de las siguientes variables son válidas y explica por qué:<br>';
-            echo "<br>";
 
             //Definicion de variables
             $_myvar = 'Soy la primera variable';
@@ -29,6 +28,23 @@
             echo '<i>$var7</i>: <b>VALIDA.</b> Comienza con signo de dolar seguido de letras y números. $var7 = '.$var7.'<br>';
             echo '<i>$_element1</i>: <b>VALIDA.</b> Comienza con signo de dolar, después un underscore, posteriormente números y letras. $_element1 = '.$_element1.'<br>';
             echo '<i>$house*5</i>: <b>NO VALIDA.</b> Contiene un caracter especial (*), y deben ser numeros y/o letras.'.'<br>';
+
+            //Liberar variables del ejercicio 1
+            unset($_myvar);
+            unset($_7var);
+            unset($myvar);
+            unset($var7);
+            unset($_element1);
+
+
+            //EJERCICIO 2
+            echo '<h2> Ejercicio 2</h2>';
+            
+            //Definicion de variables
+
+
+
+
         ?>
     </body>
 </html>
