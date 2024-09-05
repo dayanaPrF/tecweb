@@ -104,12 +104,14 @@
             var_dump($z);
             echo '<br>';
 
-
+            //Liberar variables del ejercicio 3
             unset($a);
             unset($z);
             unset($b);
             unset($c);
 
+            
+            
             //EJERCICIO 4
             echo '<h2> Ejercicio 4</h2>';
             echo '<b>Variables del ejercicio 3 usando $GLOBALS</b>';
@@ -136,11 +138,37 @@
 
             variablesGlobales();
 
+            //Liberar variables del ejercicio 4
             unset($a);
             unset($z);
             unset($b);
             unset($c);
 
+
+
+            //EJERCICIO 5
+            echo '<h2> Ejercicio 5</h2>';
+
+            echo '<ul>';
+            $a = "7 personas";
+            echo '<li>Valor de $a= '.$a.'</li>';
+            $b = (integer) $a;
+            echo '<li>Valor de $b= '.$b.'</li>';
+            $a = "9E3";
+            echo '<li>Valor de $a= '.$a.'</li>';
+            $c = (double) $a;
+            echo '<li>Valor de $c= '.$c.'</li>';
+            echo '</ul>';
+
+            //Liberar variables del ejercicio 5
+            unset($a);
+            unset($b);
+            unset($c);
+            
+
+            //EJERCICIO 6
+            
+            
 
 
         ?>
