@@ -84,7 +84,7 @@
 
             $z[] = &$a;
             echo 'Valor de $z[]=';
-            var_dump($z);
+            print_r($z);
             echo '<br>';
 
             $b = "5a version de PHP";
@@ -167,9 +167,63 @@
             
 
             //EJERCICIO 6
-            
-            
+            echo '<h2> Ejercicio 6</h2>';
 
+            $a = "0";
+            $b = "TRUE";
+            $c = FALSE;
+            $d = ($a OR $b);
+            $e = ($a AND $c);
+            $f = ($a XOR $b);
+
+            echo '<ul>';
+            echo '<li>Valor de $a= ';
+            var_dump($a);
+            echo '</li>';
+
+            echo '<li>Valor de $b= ';
+            var_dump($b);
+            echo '</li>';
+
+            echo '<li>Valor de $c= ';
+            var_dump($c);
+            echo '</li>';
+
+            echo '<li>Valor de $d= ';
+            var_dump($d);
+            echo '</li>';
+
+            echo '<li>Valor de $e= ';
+            var_dump($e);
+            echo '</li>';
+
+            echo '<li>Valor de $f= ';
+            var_dump($f);
+            echo '</li>';
+            echo '</ul>';
+
+            // Convertir variables
+            echo '<b>Variables convertidas:</b><br>';
+            // Convertir $c a cadena
+            settype($c, "string");
+            echo '<ul>';
+            echo '<li>Valor de $c= '.$c;
+            echo '</li>';
+            // Convertir $e a cadena
+            settype($e, "string");
+            echo '<li>Valor de $e= '.$e;
+            echo '</li>';
+            echo '</ul>';
+
+            echo '<i>El valor falso se muestra con una cadena vacía al usar <b>settype()</b>.</i>';
+
+            //Liberar variables del ejercicio 5
+            unset($a);
+            unset($b);
+            unset($c);
+            unset($d);
+            unset($e);
+            unset($f);
 
         ?>
     </body>
