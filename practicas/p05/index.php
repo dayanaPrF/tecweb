@@ -104,6 +104,45 @@
             var_dump($z);
             echo '<br>';
 
+
+            unset($a);
+            unset($z);
+            unset($b);
+            unset($c);
+
+            //EJERCICIO 4
+            echo '<h2> Ejercicio 4</h2>';
+            echo '<b>Variables del ejercicio 3 usando $GLOBALS</b>';
+
+            $a = "PHP5";
+            $z[] = &$a;
+            $b = "5a version de PHP";
+            $c = $b*10;
+            $a .= $b;
+            $b *= $c;
+            $z[0] = "MySQL";
+
+            function variablesGlobales() {
+                echo '<ul>';
+                echo '<li>$GLOBALS[\'a\'] = '.$GLOBALS['a'].'</li>';
+                echo '<li>$GLOBALS[\'b\'] = '.$GLOBALS['b'].'</li>';
+                echo '<li>$GLOBALS[\'c\'] = '.$GLOBALS['c'].'</li>';
+                echo '<li>$GLOBALS[\'z\'] = ';
+                var_dump($GLOBALS['z']);
+                echo '</li>';
+                echo '</ul>';
+                
+            }
+
+            variablesGlobales();
+
+            unset($a);
+            unset($z);
+            unset($b);
+            unset($c);
+
+
+
         ?>
     </body>
 </html>
