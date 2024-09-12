@@ -51,6 +51,12 @@
     ?>
 
     <h2>Ejercicio 4</h2>
+    <p>Crear un arreglo cuyos índices van de <i>97 a 122</i> y cuyos valores son las letras de la <i>'a' a la 'z'</i>. Usa la función <b>chr(n)</b> 
+        que devuelve el caracter cuyo código <i>ASCII</i> es n para poner el valor en cada índice.</p>
+
+    <?php
+        indecesLetras();
+    ?>
     
     <h2>Ejemplo de POST</h2>
     <form action="http://localhost/tecweb/practicas/p04/index.php" method="post">
