@@ -6,11 +6,10 @@
     <title>Práctica 4</title>
 </head>
 <body>
+    <?php include 'src/funciones.php';?>
     <h2>Ejercicio 1</h2>
     <p>Escribir programa para comprobar si un número es un múltiplo de 5 y 7</p>
     <?php
-        include 'src/funciones.php';
-
         esMultiploDe5y7($_GET['numero']);
         /*if(isset($_GET['numero']))
         {
@@ -26,6 +25,13 @@
         }*/
     ?>
 
+    <h2>Ejercicio 2</h2>
+    <p>Crea un programa para la generación repetitiva de 3 números aleatorios hasta obtener una
+    secuencia compuesta por <b>impar, par, impar</b></p>
+
+    <?php
+        secuencia();
+    ?>
     <h2>Ejemplo de POST</h2>
     <form action="http://localhost/tecweb/practicas/p04/index.php" method="post">
         Name: <input type="text" name="name"><br>
