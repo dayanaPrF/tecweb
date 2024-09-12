@@ -6,7 +6,9 @@
     <title>Práctica 4</title>
 </head>
 <body>
-    <?php include 'src/funciones.php';?>
+    <?php 
+    include 'src/funciones.php';
+    ?>
     <h2>Ejercicio 1</h2>
     <p>Escribir programa para comprobar si un número es un múltiplo de 5 y 7</p>
     <?php
@@ -57,9 +59,23 @@
     <?php
         indecesLetras();
     ?>
+
+
+    <!--FORMULARIO EJERCICIO 5-->
+    <h2>Ejercicio 5</h2>
+    <form action="http://localhost/tecweb/practicas/p07/src/respuesta.php" method="post">
+        Edad: <input type="number" name="edad"><br>
+        Sexo: 
+        <select name="sexo" required>
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+        </select><br>
+        <input type="submit" value="Enviar">
+    </form>
+    <br>
     
     <h2>Ejemplo de POST</h2>
-    <form action="http://localhost/tecweb/practicas/p04/index.php" method="post">
+    <form action="http://localhost/tecweb/practicas/p07/index.php" method="post">
         Name: <input type="text" name="name"><br>
         E-mail: <input type="text" name="email"><br>
         <input type="submit">

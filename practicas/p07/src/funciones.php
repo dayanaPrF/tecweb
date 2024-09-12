@@ -33,10 +33,11 @@
         for ($j = 0; $j < $numFilas; $j++) 
         {
             echo '| ';
-            for ($k = 0; $k < 3; $k++) 
+            for ($k = 0; $k < 2; $k++) 
             {
-                echo $matriz[$j][$k] . ' ';
+                echo $matriz[$j][$k] . ', ';
             }
+            echo $matriz[$j][$k] . ' ';
             echo '|<br>';
         }
         echo '<p>' . $totalNumeros . ' números obtenidos en ' . ($i + 1) . ' iteraciones.</p>';
@@ -88,8 +89,8 @@
         echo '<tr><th>Índice</th><th>Valor</th></tr>';
         foreach ($arreglo as $key => $value) {
             echo '<tr>';
-            echo '<td>' . $key . '</td>';
-            echo '<td>' . $value . '</td>';
+            echo '<td>' . $key .'</td>';
+            echo '<td>' . $value .'</td>';
             echo '</tr>';
         }
         echo '</table>';
