@@ -1,4 +1,6 @@
 <?php
+
+    //Ejercicio 1
     function esMultiploDe5y7($numero) {
         if(isset($numero))
         {
@@ -14,20 +16,36 @@
         }
     }
 
+    //Ejercicio 2
     function secuencia() {
-        $i = 1; $num = 3;
+        $matriz = array(); $i = 0; $totalNumeros = 3;
         $n1 = rand(10, 99); $n2 = rand(10, 99); $n3 = rand(10, 99);
-        echo '|'.$n1.', '.$n2.', '.$n3.'|'.'<br>';
+        $matriz[] = array($n1, $n2, $n3);
+        $numFilas = 1;
         while (!($n1 % 2 != 0 && $n2 % 2 == 0 && $n3 % 2 != 0)) 
         {
             $i++;
             $n1 = rand(10, 99); $n2 = rand(10, 99); $n3 = rand(10, 99);
-            echo '|'.$n1.', '.$n2.', '.$n3.'|'.'<br>';
-            $num += 3;
+            $totalNumeros += 3;
+            $matriz[] = array($n1, $n2, $n3);
+            $numFilas++;
         }
-        echo $num . ' números obtenidos en ' . $i . ' iteraciones.';
+        for ($j = 0; $j < $numFilas; $j++) 
+        {
+            echo '| ';
+            for ($k = 0; $k < 3; $k++) 
+            {
+                echo $matriz[$j][$k] . ' ';
+            }
+            echo '|<br>';
+        }
+        echo '<p>' . $totalNumeros . ' números obtenidos en ' . ($i + 1) . ' iteraciones.</p>';
     }
     
+    
+
+
+    //Ejercicio 3
     function primerEnteroWhile($numeroDado){
         if(isset($numeroDado))
         {
@@ -55,6 +73,12 @@
 
     function aleatorioNoEntero(){
         return rand(1,1000)/rand(1,1000);
+    }
+
+
+    //Ejercicio 4
+    function indecesLetras(){
+
     }
 ?>
 

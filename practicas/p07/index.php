@@ -49,6 +49,8 @@
     <?php
         primerEnteroDoWhile($_GET['numero2']);
     ?>
+
+    <h2>Ejercicio 4</h2>
     
     <h2>Ejemplo de POST</h2>
     <form action="http://localhost/tecweb/practicas/p04/index.php" method="post">
