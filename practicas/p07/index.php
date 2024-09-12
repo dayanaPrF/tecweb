@@ -32,6 +32,24 @@
     <?php
         secuencia();
     ?>
+
+    <h2>Ejercicio 3</h2>
+    <ul>
+        <li>Utiliza un ciclo <i>while</i> para encontrar el primer número entero obtenido aleatoriamente, 
+        pero que además sea múltiplo de un número dado.</li>
+    </ul>
+    
+    <?php
+        primerEnteroWhile($_GET['numero2']);
+    ?>
+    <ul>
+        <li>Crear una variante de este script utilizando el ciclo <i>do-while</i>.</li>
+    </ul>
+
+    <?php
+        primerEnteroDoWhile($_GET['numero2']);
+    ?>
+    
     <h2>Ejemplo de POST</h2>
     <form action="http://localhost/tecweb/practicas/p04/index.php" method="post">
         Name: <input type="text" name="name"><br>

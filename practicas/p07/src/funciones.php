@@ -28,5 +28,33 @@
         echo $num . ' números obtenidos en ' . $i . ' iteraciones.';
     }
     
+    function primerEnteroWhile($numeroDado){
+        if(isset($numeroDado))
+        {
+            $num1 = $numeroDado; $num2 = aleatorioNoEntero();
+            while (!(is_int($num2) && $num2 % $num1 == 0))
+            {
+                $num2 = aleatorioNoEntero();
+            }
+            echo 'El número '.$num2.' es entero y es multiplo de '.$num1;
+
+        }
+    }
+
+    function primerEnteroDoWhile($numeroDado){
+        if(isset($numeroDado))
+        {
+            $num1 = $numeroDado;
+            do
+            {
+                $num2 = aleatorioNoEntero();
+            } while (!(is_int($num2) && $num2 % $num1 == 0));
+            echo 'El número '.$num2.' es entero y es múltiplo de '.$num1;
+        }
+    }
+
+    function aleatorioNoEntero(){
+        return rand(1,1000)/rand(1,1000);
+    }
 ?>
 
