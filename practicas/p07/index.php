@@ -59,6 +59,27 @@
     <?php
         indecesLetras();
     ?>
+
+    <!--FORMULARIO EJERCICIO 5-->
+    <h2>Ejercicio 5</h2>
+    <form action="http://localhost/tecweb/practicas/p07/src/respuesta.php" method="post">
+        Edad: <input type="number" name="edad"><br>
+        Sexo: <select name="sexo" required>
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+        </select><br>
+        <input type="submit" value="Enviar">
+    </form>
+    <br>
+
+    <!--FORMULARIO EJERCICIO 6-->
+    <h2>Ejercicio 6</h2>
+    <form action="http://localhost/tecweb/practicas/p07/src/respuesta.php" method="post">
+        Matricula: <input type="text" name="matricula"><br>
+        <input type="submit" name="enviarmatricula" value="Enviar">
+        <input type="hidden" name="listarVehiculos" value="true">
+        <input type="submit" value="Listar Todos">
+    </form>
     
     <!--<h2>Ejemplo de POST</h2>
     <form action="http://localhost/tecweb/practicas/p07/index.php" method="post">
