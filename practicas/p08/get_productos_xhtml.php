@@ -17,6 +17,7 @@
 			/** Consulta para obtener productos con unidades <= al tope */
 			if ($result = $link->query("SELECT * FROM productos WHERE unidades <= $tope")) {
 				$rows = $result->fetch_all(MYSQLI_ASSOC);
+                /** útil para liberar memoria asociada a un resultado con demasiada información */
 				$result->free();
 			}
 
@@ -50,6 +51,7 @@
 					</tr>
 				</thead>
 				<tbody>
+                <!--Extraer y mostrar los datos de cada fila-->
 					<?php foreach ($rows as $row) : ?>
 					<tr>
 						<th scope="row"><?= $row['id'] ?></th>
