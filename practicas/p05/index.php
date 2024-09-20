@@ -89,7 +89,10 @@
 
             $z[] = &$a;
             echo '<p>Valor de $z[]=';
-            print_r($z);
+            foreach ($z as $valor) {
+                echo $valor . ' ';
+            }
+            //print_r($z);
             echo '</p>';
 
             $b = "5a version de PHP";
@@ -101,14 +104,17 @@
             $a .= $b;
             echo '<p>Valor de $a= '.$a.'</p>';
 
-            $b_numeric = (int) $b; // Convierte el valor a un número
+            $b_numeric = (int) $b;
             $b_numeric *= $c;
             //$b *= $c;
             echo '<p>Valor de $b= '.$b.'</p>';
 
             $z[0] = "MySQL";
             echo '<p>Valor de $z[]=';
-            var_dump($z);
+            foreach ($z as $valor) {
+                echo $valor . ' ';
+            }
+            //var_dump($z);
             echo '</p>';
 
             //Liberar variables del ejercicio 3
@@ -127,9 +133,10 @@
             $a = "PHP5";
             $z[] = &$a;
             $b = "5a version de PHP";
-            $c = $b*10;
+            $c = (integer)$b*10;
             $a .= $b;
-            $b *= $c;
+            $b_numeric = (integer)$b;
+            $b_numeric *= $c;
             $z[0] = "MySQL";
 
             function variablesGlobales() {
@@ -138,7 +145,10 @@
                 echo '<li>$GLOBALS[\'b\'] = '.$GLOBALS['b'].'</li>';
                 echo '<li>$GLOBALS[\'c\'] = '.$GLOBALS['c'].'</li>';
                 echo '<li>$GLOBALS[\'z\'] = ';
-                var_dump($GLOBALS['z']);
+                foreach ($GLOBALS['z'] as $valor) {
+                    echo $valor . ' '; 
+                }
+                //var_dump($GLOBALS['z']);
                 echo '</li>';
                 echo '</ul>';
                 
@@ -150,6 +160,7 @@
             unset($a);
             unset($z);
             unset($b);
+            unset($b_numeric);
             unset($c);
 
 
