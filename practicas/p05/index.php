@@ -27,7 +27,7 @@
             echo '<p><i>$myvar</i>: <b>VALIDA.</b> Comienza con signo de dolar seguido de letras. $myvar = '.$myvar.'</p>';
             echo '<p><i>$var7</i>: <b>VALIDA.</b> Comienza con signo de dolar seguido de letras y números. $var7 = '.$var7.'</p>';
             echo '<p><i>$_element1</i>: <b>VALIDA.</b> Comienza con signo de dolar, después un underscore, posteriormente números y letras. $_element1 = '.$_element1.'</p>';
-            echo '<p><i>$house*5</i>: <b>NO VALIDA.</b> Contiene un caracter especial (*), y deben ser numeros y/o letras.</p>';
+            echo '<p><i>$house*5</i>: <b>NO VALIDA.</b> Contiene un caracter especial (*3), y deben ser numeros y/o letras.</p>';
 
             //Liberar variables del ejercicio 1
             unset($_myvar);
@@ -55,6 +55,11 @@
             $a = "PHP server";
             $b = &$a;
 
+            /*echo '<p><b>Contenido de las variables modificadas:</b></p>';
+            echo '<ul><li>$a = '.$a.'</li>';
+            echo '<li>$b = '.$b.'</li>';
+            echo '<li>$c = '.$c.'</li>';
+            echo '</ul>';*/
             echo '<p><b>Contenido de las variables modificadas:</b></p>';
             echo '<ul><li>$a = '.$a.'</li>';
             echo '<li>$b = '.$b.'</li>';
@@ -62,12 +67,12 @@
             echo '</ul>';
 
             //Descripcion de lo sucedido
-            echo "<p><b>Explicacion:</b><br />";
-            echo 'Las primeras asignaciones asignan directamente valores a las variables <i>$a, $b y $c</i> 
+            echo "<p><b>Explicacion:</b></p>";
+            echo '<p>Las primeras asignaciones asignan directamente valores a las variables <i>$a, $b y $c</i> 
             (donde $c contiene la referencia del contenido de $a por medio del operador &amp;). En el segundo bloque se le asigna un 
             nuevo valor a $a, siendo este <b>PHP server</b>, posteriormente se le asigna el contenido de $a
             a la variable $b, y, ya que $c ya se le asignó el contenido de $a anteriormente, ahora se le asigna el 
-            nuevo contenido, por lo que todas las variables imprimen <b>PHP server</b><br /></p>';
+            nuevo contenido, por lo que todas las variables imprimen <b>PHP server</b></p>';
 
 
             //Liberar variables del ejercicio 2
@@ -88,15 +93,17 @@
             echo '</p>';
 
             $b = "5a version de PHP";
-            echo '<p>Valor de $b= '.$b.'</p>';
+            echo '<p>Valor de $b= '.$b.'</p>';         
 
-            $c = $b * 10;
+            $c = (integer)$b * 10;
             echo '<p>Valor de $c= '.$c.'</p>';
 
             $a .= $b;
             echo '<p>Valor de $a= '.$a.'</p>';
 
-            $b *= $c;
+            $b_numeric = (int) $b; // Convierte el valor a un número
+            $b_numeric *= $c;
+            //$b *= $c;
             echo '<p>Valor de $b= '.$b.'</p>';
 
             $z[0] = "MySQL";
@@ -108,6 +115,7 @@
             unset($a);
             unset($z);
             unset($b);
+            unset($b_numeric);
             unset($c);
 
             
@@ -213,7 +221,7 @@
             echo '<li>Valor de $e= '.$e.'</li>';
             echo '</ul>';
 
-            echo '<i>El valor falso se muestra con una cadena vacía al usar <b>settype()</b>.</i>';
+            echo '<p><i>El valor falso se muestra con una cadena vacía al usar <b>settype()</b>.</i></p>';
 
             //Liberar variables del ejercicio 5
             unset($a);
@@ -228,9 +236,9 @@
             //EJERCICIO 7
             echo '<h2> Ejercicio 7</h2>';
 
-            echo 'Versión de PHP y Apache: '.$_SERVER['SERVER_SOFTWARE'].'<br />';
-            echo 'Versión del sistema operativo (servidor): '.$_SERVER['SERVER_NAME'].'<br />';
-            echo 'Idioma del navegador (cliente): '.$_SERVER['HTTP_ACCEPT_LANGUAGE'].'<br />';
+            echo '<p>Versión de PHP y Apache: '.$_SERVER['SERVER_SOFTWARE'].'</p>';
+            echo '<p>Versión del sistema operativo (servidor): '.$_SERVER['SERVER_NAME'].'</p>';
+            echo '<p>Idioma del navegador (cliente): '.$_SERVER['HTTP_ACCEPT_LANGUAGE'].'</p>';
 
 
 
