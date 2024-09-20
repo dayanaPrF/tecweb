@@ -23,11 +23,11 @@
 
             echo '<p><i>$_myvar</i>: <b>VALIDA.</b> Comienza con signo de dólar, después un underscore seguido de letras. $_myvar = '.$_myvar.'</p>';
             echo '<p><i>$_7var</i>: <b>VALIDA.</b> Comienza con signo de dolar, después un underscore, posteriormente números y letras. $_7var = '.$_7var.'</p>';
-            echo '<p><i>myvar</i>: <b>NO VALIDA.</b> No comienza con signo de dolar.'.'</p>';
+            echo '<p><i>myvar</i>: <b>NO VALIDA.</b> No comienza con signo de dolar.</p>';
             echo '<p><i>$myvar</i>: <b>VALIDA.</b> Comienza con signo de dolar seguido de letras. $myvar = '.$myvar.'</p>';
             echo '<p><i>$var7</i>: <b>VALIDA.</b> Comienza con signo de dolar seguido de letras y números. $var7 = '.$var7.'</p>';
             echo '<p><i>$_element1</i>: <b>VALIDA.</b> Comienza con signo de dolar, después un underscore, posteriormente números y letras. $_element1 = '.$_element1.'</p>';
-            echo '<p><i>$house*5</i>: <b>NO VALIDA.</b> Contiene un caracter especial (*), y deben ser numeros y/o letras.'.'</p>';
+            echo '<p><i>$house*5</i>: <b>NO VALIDA.</b> Contiene un caracter especial (*), y deben ser numeros y/o letras.</p>';
 
             //Liberar variables del ejercicio 1
             unset($_myvar);
@@ -45,7 +45,7 @@
             $b = 'MySQL';
             $c = &$a;
 
-            echo '<b>Contenido de las variables:</b><br />';
+            echo '<p><b>Contenido de las variables:</b></p>';
             echo '<ul><li>$a = '.$a.'</li>';
             echo '<li>$b = '.$b.'</li>';
             echo '<li>$c = '.$c.'</li>';
@@ -55,19 +55,19 @@
             $a = "PHP server";
             $b = &$a;
 
-            echo '<b>Contenido de las variables modificadas:</b><br />';
+            echo '<p><b>Contenido de las variables modificadas:</b></p>';
             echo '<ul><li>$a = '.$a.'</li>';
             echo '<li>$b = '.$b.'</li>';
             echo '<li>$c = '.$c.'</li>';
             echo '</ul>';
 
             //Descripcion de lo sucedido
-            echo "<b>Explicacion:</b><br />";
-            echo 'Las primeras asignaciones asignan directamente valores a las variables <i>$a, $b y $ c</i> 
-            (donde $c contiene la referencia del contenido de $a por medio del operador &). En el segundo bloque se le asigna un 
+            echo "<p><b>Explicacion:</b><br />";
+            echo 'Las primeras asignaciones asignan directamente valores a las variables <i>$a, $b y $c</i> 
+            (donde $c contiene la referencia del contenido de $a por medio del operador &amp;). En el segundo bloque se le asigna un 
             nuevo valor a $a, siendo este <b>PHP server</b>, posteriormente se le asigna el contenido de $a
             a la variable $b, y, ya que $c ya se le asignó el contenido de $a anteriormente, ahora se le asigna el 
-            nuevo contenido, por lo que todas las variables imprimen <b>PHP server</b><br />';
+            nuevo contenido, por lo que todas las variables imprimen <b>PHP server</b><br /></p>';
 
 
             //Liberar variables del ejercicio 2
@@ -80,29 +80,29 @@
 
             //Definicion de variables
             $a = "PHP5";
-            echo 'Valor de $a= '.$a.'<br />';
+            echo '<p>Valor de $a= '.$a.'</p>';
 
             $z[] = &$a;
-            echo 'Valor de $z[]=';
+            echo '<p>Valor de $z[]=';
             print_r($z);
-            echo '<br />';
+            echo '</p>';
 
             $b = "5a version de PHP";
-            echo 'Valor de $b= '.$b.'<br />';
+            echo '<p>Valor de $b= '.$b.'</p>';
 
-            $c = $b*10;
-            echo 'Valor de $c= '.$c.'<br />';
+            $c = $b * 10;
+            echo '<p>Valor de $c= '.$c.'</p>';
 
             $a .= $b;
-            echo 'Valor de $a= '.$a.'<br />';
+            echo '<p>Valor de $a= '.$a.'</p>';
 
             $b *= $c;
-            echo 'Valor de $b= '.$b.'<br />';
+            echo '<p>Valor de $b= '.$b.'</p>';
 
             $z[0] = "MySQL";
-            echo 'Valor de $z[]=';
+            echo '<p>Valor de $z[]=';
             var_dump($z);
-            echo '<br />';
+            echo '</p>';
 
             //Liberar variables del ejercicio 3
             unset($a);
@@ -114,7 +114,7 @@
             
             //EJERCICIO 4
             echo '<h2> Ejercicio 4</h2>';
-            echo '<b>Variables del ejercicio 3 usando $GLOBALS</b>';
+            echo '<p><b>Variables del ejercicio 3 usando $GLOBALS</b></p>';
 
             $a = "PHP5";
             $z[] = &$a;
@@ -203,16 +203,14 @@
             echo '</ul>';
 
             // Convertir variables
-            echo '<b>Variables convertidas:</b><br>';
+            echo '<p><b>Variables convertidas:</b></p>';
             // Convertir $c a cadena
             settype($c, "string");
             echo '<ul>';
-            echo '<li>Valor de $c= '.$c;
-            echo '</li>';
+            echo '<li>Valor de $c= '.$c.'</li>';
             // Convertir $e a cadena
             settype($e, "string");
-            echo '<li>Valor de $e= '.$e;
-            echo '</li>';
+            echo '<li>Valor de $e= '.$e.'</li>';
             echo '</ul>';
 
             echo '<i>El valor falso se muestra con una cadena vacía al usar <b>settype()</b>.</i>';
