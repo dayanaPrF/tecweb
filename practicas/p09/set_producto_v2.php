@@ -32,8 +32,11 @@ if ($resultado->num_rows > 0) {
     $ruta_imagen = "img/" . $imagen;
 
     // Crear la consulta de inserción
-    $sql = "INSERT INTO productos (nombre, marca, modelo, precio, detalles, unidades, imagen) 
-            VALUES ('$nombre', '$marca', '$modelo', $precio, '$detalles', $unidades, '$ruta_imagen')";
+    //$sql = "INSERT INTO productos (nombre, marca, modelo, precio, detalles, unidades, imagen) 
+        //    VALUES ('$nombre', '$marca', '$modelo', $precio, '$detalles', $unidades, '$ruta_imagen')";
+
+        $sql = "INSERT INTO productos (nombre, marca, modelo, precio, detalles, unidades, imagen, eliminado) 
+            VALUES ('$nombre', '$marca', '$modelo', $precio, '$detalles', $unidades, '$ruta_imagen', 0)";
 
     if ($link->query($sql)) {
         // Capturar el ID del producto insertado y mensaje de éxito
