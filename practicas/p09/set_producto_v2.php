@@ -21,11 +21,12 @@ $unidades = $_POST['unidades'];
 $imagen = $_POST['imagen'];
 
 // Validar que no existan productos con el mismo nombre, marca y modelo
-$consulta = "SELECT * FROM productos WHERE nombre = '$nombre' AND marca = '$marca' AND modelo = '$modelo'";
+$consulta = "SELECT * FROM productos WHERE nombre = '$nombre' OR marca = '$marca' OR modelo = '$modelo'";
 $resultado = $link->query($consulta);
 
 if ($resultado->num_rows > 0) {
-    $error_message = 'Error: Ya existe un producto con el mismo nombre, marca y modelo.';
+    // Mensaje de error si el producto ya existe
+    $error_message = 'Error: Ya existe un producto con el mismo nombre, marca o modelo.';
 } else {
     // Concatenar la ruta de la imagen
     $ruta_imagen = "img/" . $imagen;
@@ -35,9 +36,11 @@ if ($resultado->num_rows > 0) {
             VALUES ('$nombre', '$marca', '$modelo', $precio, '$detalles', $unidades, '$ruta_imagen')";
 
     if ($link->query($sql)) {
+        // Capturar el ID del producto insertado y mensaje de éxito
         $insert_id = $link->insert_id;
         $success_message = 'El producto ha sido registrado con éxito.';
     } else {
+        // Mensaje de error si no se pudo insertar el producto
         $error_message = 'El Producto no pudo ser insertado =(';
     }
 }
