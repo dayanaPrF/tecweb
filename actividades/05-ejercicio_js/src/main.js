@@ -266,3 +266,106 @@ function estructuraRep4()
     }
 }
 
+//EJERCICIO 14
+function funciones1()
+{
+    var vdiv14 = document.getElementById('ej14');
+    vdiv14.innerHTML = "Cuidado<br>"+"Ingresa tu documento correctamente<br>";
+    vdiv14.innerHTML += "Cuidado<br>"+"Ingresa tu documento correctamente<br>";
+    vdiv14.innerHTML += "Cuidado<br>"+"Ingresa tu documento correctamente<br>";
+    /*document.write("Cuidado<br>");
+    document.write("Ingresa tu documento correctamente<br>");
+    document.write("Cuidado<br>");
+    document.write("Ingresa tu documento correctamente<br>");
+    document.write("Cuidado<br>");
+    document.write("Ingresa tu documento correctamente<br>");*/
+}
+
+//EJRCICIO 15
+function mostrarMensaje(vdiv15) {
+    vdiv15.innerHTML += "Cuidado<br>"+"Ingresa tu documento correctamente<br>";
+    //document.write("Ingresa tu documento correctamente<br>");
+    //document.write("Cuidado<br>");
+}
+
+function funciones2()
+{
+    var vdiv15 = document.getElementById('ej15');
+    vdiv15.innerHTML = "";
+    mostrarMensaje(vdiv15);
+    mostrarMensaje(vdiv15);
+    mostrarMensaje(vdiv15);
+}
+
+//EJERCICIO 16
+function mostrarRango(x1,x2,vdiv16) {
+    var inicio;
+    for(inicio=x1; inicio<=x2; inicio++) {
+        vdiv16.innerHTML += inicio+'';
+        //document.write(inicio+'');
+    }
+}
+function funciones3()
+{
+    var vdiv16 = document.getElementById('ej16');
+    vdiv16.innerHTML = "";
+    var valor1,valor2;
+    valor1 = prompt('Ingresa el valor inferior:', '');
+    valor1 = parseInt(valor1);
+    valor2 = prompt('Ingresa el valor superior:', '');
+    valor2 = parseInt(valor2);
+    mostrarRango(valor1,valor2,vdiv16);
+}
+
+//EJERCICIO 17
+function convertirCastellano(x) {
+
+    if(x==1)
+        return "uno";
+    else
+        if(x==2)
+            return "dos";
+        else
+            if(x==3)
+                return "tres";
+            else
+                if(x==4)
+                    return "cuatro";
+                else
+                    if(x==5)
+                        return "cinco";
+                    else
+                        return "valor incorrecto";
+    
+}
+
+function funciones4()
+{
+    var vdiv17 = document.getElementById('ej17');
+    var valor = prompt("Ingresa un valor entre 1 y 5", "");
+    valor = parseInt(valor);
+    var r = convertirCastellano(valor);
+    vdiv17.innerHTML = r;
+    //document.write(r);
+}
+
+//EJERCICIO 18
+function convertirCastellano2(x) {
+    switch (x) {
+    case 1: return "uno";
+    case 2: return "dos";
+    case 3: return "tres";
+    case 4: return "cuatro";
+    case 5: return "cinco";
+    default: return "valor incorrecto";
+    }
+}
+
+function funciones5()
+{
+    var vdiv18 = document.getElementById('ej18');
+    var valor = prompt("Ingresa un valor entre 1 y 5", "");
+    valor = parseInt(valor);
+    var r = convertirCastellano2(valor);
+    vdiv18.innerHTML = r;
+}
