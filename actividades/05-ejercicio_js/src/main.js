@@ -12,69 +12,85 @@
     div2.innerHTML = '<h3> Edad: '+edad+'</h3>';
 }*/
 
+//EJERCICIO 1
 function holaMundo()
 {
-    document.write('Hola Mundo');
+    var vdiv1 = document.getElementById('ej1');
+    vdiv1.innerHTML = '<h4>Hola Mundo</h4>';
+    //document.write('Hola Mundo');
 }
 
+//EJERCICIO 2
 function leerVariables()
 {
+    var vdiv2 = document.getElementById('ej2');
     var nombre = 'Juan';
     var edad = 10;
     var altura = 1.92;
     var casado = false;
-
-    document.write(nombre);
-    document.write('<br>');
+    /*document.write( nombre );
+    document.write( '<br>' );
     document.write( edad );
-    document.write('<br>');
-    document.write(altura);
-    document.write('<br>');
-    document.write(casado);
+    document.write( '<br>' );
+    document.write( altura );
+    document.write( '<br>' );
+    document.write( casado );*/
+    vdiv2.innerHTML = 'Nombre: '+nombre+'<br>Edad:'+edad+'<br>Altura: '+altura+'<br>Casado: '+casado;
 }
 
+//EJERCICIO 3
 function leerVariables2()
 {
+    var vdiv3 = document.getElementById('ej3');
     var nombre;
     var edad;
     nombre = prompt('Ingresa tu nombre:', '');
     edad = prompt('Ingresa tu edad:', '');
-    document.write('Hola ');
+    vdiv3.innerHTML = 'Hola '+nombre+' así que tienes '+edad+' años';
+    /*document.write('Hola ');
     document.write(nombre);
     document.write(' así que tienes ');
     document.write(edad);
-    document.write(' años');
+    document.write(' años');*/
 }
 
+//EJERCICIO 4
 function estructura1()
 {
+    var vdiv4 = document.getElementById('ej4');
     var valor1;
     var valor2;
     valor1 = prompt('Introducir primer número:', '');
     valor2 = prompt('Introducir segundo número', '');
     var suma = parseInt(valor1)+parseInt(valor2);
     var producto = parseInt(valor1)*parseInt(valor2);
-    document.write('La suma es ');
+    vdiv4.innerHTML = 'La suma es '+suma+'<br>El producto es '+producto;
+    /*document.write('La suma es ');
     document.write(suma);
     document.write('<br>');
     document.write('El producto es ');
-    document.write(producto);
+    document.write(producto);*/
 }
 
+//EJERCICIO 5
 function estructura2()
 {
+    var vdiv5 = document.getElementById('ej5');
     var nombre;
     var nota;
     nombre = prompt('Ingresa tu nombre:', '');
     nota = prompt('Ingresa tu nota:', '');
     if (nota>=4) 
     {
-        document.write(nombre+'  esta aprobado con un '+nota);
+        vdiv5.innerHTML = nombre + '  esta aprobado con un ' + nota;
+        //document.write(nombre+'  esta aprobado con un '+nota);
     }
 }
 
+//EJRCICIO 6
 function estructura3()
 {
+    var vdiv6 = document.getElementById('ej6');
     var num1,num2;
     num1 = prompt('Ingresa el primer número:', '');
     num2 = prompt('Ingresa el segundo número:', '');
@@ -82,14 +98,18 @@ function estructura3()
     num2 = parseInt(num2);
     if (num1>num2) 
     {
-        document.write('el mayor es '+num1);
+        vdiv6.innerHTML = 'el mayor es '+num1;
+        //document.write('el mayor es '+num1);
     } else {
-        document.write('el mayor es '+num2);
+        vdiv6.innerHTML ='el mayor es '+num2;
+        //document.write('el mayor es '+num2);
     }
 }
 
+//Ejercicio 7
 function estructura4()
 {
+    var vdiv7 = document.getElementById('ej7');
     var nota1,nota2,nota3;
 
     nota1 = prompt('Ingresa 1ra. nota:', '');
@@ -104,41 +124,51 @@ function estructura4()
     var pro;
     pro = (nota1+nota2+nota3)/3;
     if (pro>=7) {
-        document.write('aprobado');
+        vdiv7.innerHTML = 'aprobado';
+        //document.write('aprobado');
     } else {
         if (pro>=4) {
-            document.write('regular');
+            vdiv7.innerHTML = 'regular';
+            //document.write('regular');
         } else {
-            document.write('reprobado');
+            vdiv7.innerHTML = 'reprobado';
+            //document.write('reprobado');
         }
     }
 }
 
+//EJERCICIO 8
 function estructura5()
 {
+    var vdiv8 = document.getElementById('ej8');
     var valor;
     valor = prompt('Ingresar un valor comprendido entre 1 y 5:','');
     //Convertimos a entero
     valor = parseInt(valor);
     switch (valor) {
         case 1: 
-            document.write('uno');
+            vdiv8.innerHTML = 'uno';
+            //document.write('uno');
             break;
 
         case 2: 
-            document.write('dos');
+            vdiv8.innerHTML = 'dos';
+            //document.write('dos');
             break;
 
         case 3: 
-            document.write('tres');
+            vdiv8.innerHTML = 'tres';
+            //document.write('tres');
             break;
 
         case 4: 
-            document.write('cuatro');
+            vdiv8.innerHTML = 'cuatro';
+            //document.write('cuatro');
             break;
 
         case 5: 
-            document.write('cinco');
+            vdiv8.innerHTML = 'cinco';
+            //document.write('cinco');
             break;
 
         default:
@@ -146,6 +176,7 @@ function estructura5()
     }
 }
 
+//EJERCICIO 9
 function estructura6()
 {
     var col;
@@ -163,19 +194,24 @@ function estructura6()
     }
 }
 
+//EJERCICIO 10
 function estructuraRep1()
 {
+    var vdiv10 = document.getElementById('ej10');
     var x;
     x=1;
     while (x<=100) {
-        document.write(x);
-        document.write('<br>');
+        vdiv10.innerHTML += x+'<br>';
+        //document.write(x);
+        //document.write('<br>');
         x=x+1;
     }
 }
 
+//EJERCICIO 11
 function estructuraRep2()
 {
+    var vdiv11 = document.getElementById('ej11');
     var x=1;
     var suma=0;
     var valor;
@@ -185,35 +221,48 @@ function estructuraRep2()
         suma = suma+valor;
         x = x+1;
     }
-    document.write("La suma de los valores es "+suma+"<br>");
+    vdiv11.innerHTML = "La suma de los valores es "+suma+"<br>";
+    //document.write("La suma de los valores es "+suma+"<br>");
 }
 
+
+//EJERCICIO 12
 function estructuraRep3()
 {
+    var vdiv12 = document.getElementById('ej12');
     var valor;
     do{
         valor = prompt('Ingresa un valor entre 0 y 999:','');
         valor = parseInt(valor);
-        document.write('El valor '+valor+' tiene ');
+        vdiv12.innerHTML += 'El valor '+valor;
+        //document.write('El valor '+valor+' tiene ');
         if (valor<10){
-            document.write('Tiene 1 dígitos')
+            vdiv12.innerHTML += ' tiene 1 dígitos';
+            //document.write('Tiene 1 dígitos')
         }else{
             if (valor<100) {
-            document.write('Tiene 2 dígitos');
+                vdiv12.innerHTML += ' tiene 2 dígitos';
+                //document.write('Tiene 2 dígitos');
             }else {
-            document.write('Tiene 3 dígitos');
+                vdiv12.innerHTML += ' tiene 3 dígitos';
+                //document.write('Tiene 3 dígitos');
             }
-            document.write('<br>');
+            
         }
+        vdiv12.innerHTML += '<br>';
+        //document.write('<br>');
     }while(valor!=0);
 }
 
+//EJERCICIO 13
 function estructuraRep4()
 {
+    var vdiv13 = document.getElementById('ej13');
     var f;
     for(f=1; f<=10; f++)
     {
-        document.write(f+" ");
+        vdiv13.innerHTML += f+" "
+        //document.write(f+" ");
     }
 }
 
