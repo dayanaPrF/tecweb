@@ -13,7 +13,7 @@
 				for( f=0; f<sueldos.length; f++ )
 				{
 					var v;
-					v = prompt('Ingrese sueldo:','');
+					v = prompt('Ingrese sueldo:',''); //Se pide ingresar un sueldo por cada posicion del arreglo
 					sueldos[f] = parseInt(v);
 				}
 			}
@@ -21,12 +21,12 @@
 			{
 				var total = 0;
 				var f;
-				for( f=0; f<sueldos.length; f++ )
+				for( f=0; f<sueldos.length; f++ ) //Calcua sueldo para todo lo ingresado
 				{
 					total = total + sueldos[f];
 				}
 				document.write('Listado de sueldos<br>');
-				for( f=0; f<sueldos.length; f++ )
+				for( f=0; f<sueldos.length; f++ ) //Escribe cada sueldo segun la posicion del arreglo
 				{
 					document.write(sueldos[f]+'<br>');
 				}

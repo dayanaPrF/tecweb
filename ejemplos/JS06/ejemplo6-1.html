@@ -12,14 +12,14 @@
 				var fecha
 				fecha = new Date();
 				document.write('Hoy es ');
-				document.write(fecha.getDate()+'/');
-				document.write((fecha.getMonth()+1)+'/');
-				document.write(fecha.getFullYear());
+				document.write(fecha.getDate()+'/'); //Obtiene dia
+				document.write((fecha.getMonth()+1)+'/'); //Obtiene mes
+				document.write(fecha.getFullYear()); //Obtiene año
 				document.write('<br>');
 				document.write('Es la hora ');
-				document.write(fecha.getHours()+':');
-				document.write(fecha.getMinutes()+':');
-				document.write(fecha.getSeconds());
+				document.write(fecha.getHours()+':'); //Obtiene horas
+				document.write(fecha.getMinutes()+':'); //Obtiene minutos
+				document.write(fecha.getSeconds()); //Obtiene segundos
 			}
 			//Llamada a la función
 			mostrarFechaHora();
