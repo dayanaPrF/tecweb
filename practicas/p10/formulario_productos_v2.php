@@ -15,7 +15,7 @@
 <body>
     <h1>Registro de Producto</h1>
 
-    <form id="formularioProducto" action="http://localhost/tecweb/practicas/p10/set_producto_v2.php" method="post" enctype="multipart/form-data">
+    <form id="formularioProducto" action="http://localhost/tecweb/practicas/p10/update_producto.php" method="post" enctype="multipart/form-data">
         <h2>Información del Producto</h2>
 
         <fieldset>
@@ -84,7 +84,7 @@
                 <li>
                     <label for="form-imagen">Imagen:</label> 
                     <input type="file" name="imagen" id="form-imagen" accept="image/*" onchange="validarImagen()"> 
-                    <div id="imgn"> <img src="<?= !empty($_POST['imagen'])?$_POST['imagen']:$_GET['imagen'] ?>" alt=""></div>
+                   
                 </li>
             </ul>
         </fieldset>
