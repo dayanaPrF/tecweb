@@ -34,18 +34,19 @@
 			<table class="table">
 				<thead class="thead-dark">
 					<tr>
-					<th scope="col">#</th>
-					<th scope="col">Nombre</th>
-					<th scope="col">Marca</th>
-					<th scope="col">Modelo</th>
-					<th scope="col">Precio</th>
-					<th scope="col">Unidades</th>
-					<th scope="col">Detalles</th>
-					<th scope="col">Imagen</th>
+						<th scope="col">#</th>
+						<th scope="col">Nombre</th>
+						<th scope="col">Marca</th>
+						<th scope="col">Modelo</th>
+						<th scope="col">Precio</th>
+						<th scope="col">Unidades</th>
+						<th scope="col">Detalles</th>
+						<th scope="col">Imagen</th>
+						<th scope="col">Modificar</th> <!-- Nueva columna Modificar -->
 					</tr>
 				</thead>
 				<tbody>
-                <!--Extraer y mostrar los datos de cada fila-->
+					<!--Extraer y mostrar los datos de cada fila-->
 					<?php foreach ($rows as $row) : ?>
 					<tr>
 						<th scope="row"><?= $row['id'] ?></th>
@@ -56,10 +57,14 @@
 						<td><?= $row['unidades'] ?></td>
 						<td><?= utf8_encode($row['detalles']) ?></td>
 						<td><img src="<?= $row['imagen'] ?>" alt="Imagen de <?= $row['nombre'] ?>" /></td>
+						<td>
+							<a href="modificar_producto.php?id=<?= $row['id'] ?>" class="btn btn-warning">Modificar</a> <!-- Boton para modificar -->
+						</td>
 					</tr>
 					<?php endforeach; ?>
 				</tbody>
 			</table>
+
 
 		<?php else : ?>
 
