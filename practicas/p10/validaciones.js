@@ -75,7 +75,7 @@ function validarDetalles() {
 
 function validarImagen(){
     var inputImagen = document.getElementById("form-imagen");
-    var formData = new FormData(document.getElementById("formularioProductos"));
+    var formData = new FormData(document.getElementById("formularioProducto"));
     if (!(inputImagen.files.length === 0)) {
         var file = inputImagen.files[0];
         formData.append("imagen", file);

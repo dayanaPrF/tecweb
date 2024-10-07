@@ -18,18 +18,37 @@ $modelo = $_POST['modelo'];
 $precio = $_POST['precio'];
 $detalles = $_POST['detalles'];
 $unidades = $_POST['unidades'];
-$imagen = $_POST['imagen'];
+//$imagen = $_POST['imagen'];
 
 // Validar que no existan productos con el mismo nombre, marca y modelo
-$consulta = "SELECT * FROM productos WHERE nombre = '$nombre' OR marca = '$marca' OR modelo = '$modelo'";
+$consulta = "SELECT * FROM productos WHERE nombre = '$nombre' AND marca = '$marca' AND modelo = '$modelo'";
 $resultado = $link->query($consulta);
 
 if ($resultado->num_rows > 0) {
     // Mensaje de error si el producto ya existe
     $error_message = 'Error: Ya existe un producto con el mismo nombre, marca o modelo.';
 } else {
+    $ruta_imagen = 'img/' . basename($_FILES['imagen']['name']);
+        if ($_FILES['imagen']['error'] === UPLOAD_ERR_NO_FILE) {
+            // Si no se subió, asignar la imagen predeterminada
+            $ruta_imagen = 'img/defecto.jpg';
+        } else {
+            if (!move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta_imagen)) {
+                die('<h1>Error al subir la imagen</h1>');
+            }
+        }
+
     // Concatenar la ruta de la imagen
-    $ruta_imagen = "img/" . $imagen;
+    /*$ruta_imagen = "img/" . $imagen;
+        if ($_FILES['imagen']['error'] === UPLOAD_ERR_NO_FILE) {
+            // Si no se subió, asignar la imagen predeterminada
+            $ruta_imagen = 'img/defecto.jpg';
+        } else {
+            if (!move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta_imagen)) {
+                die('<h1>Error al subir la imagen</h1>');
+            }
+        }*/
+
 
     // Crear la consulta de inserción
     //$sql = "INSERT INTO productos (nombre, marca, modelo, precio, detalles, unidades, imagen) 
