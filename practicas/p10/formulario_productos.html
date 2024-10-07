@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Registro de Producto</title>
+    <script src = "validaciones.js"></script>
+    <style type="text/css">
+        ol, ul {
+            list-style-type: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Registro de Producto</h1>
+
+    <form id="formularioProducto" action="http://localhost/tecweb/practicas/p09/set_producto_v2.php" method="post">
+        <h2>Información del Producto</h2>
+
+        <fieldset>
+            <legend>Detalles del Producto</legend>
+
+            <ul>
+                <!--NOMBRE-->
+                <li>
+                    <label for="form-nombre">Nombre:</label> 
+                    <input type="text" name="nombre" id="form-nombre" oninput="validarNombre()" required>
+                    <div id="error-nombre" style="font-weight: bold;"></div>
+                </li>
+
+                <!--MARCA-->
+                <li>
+                    <label for="form-marca">Marca:</label>
+                    <select name="marca" id="form-marca" onchange="validarMarca()" required>
+                        <option value="">Selecciona una marca</option>
+                        <option value="Maybelline">Maybelline</option>
+                        <option value="LOreal">L'Oreal</option>
+                        <option value="MAC">MAC</option>
+                        <option value="NARS">NARS</option>
+                        <option value="Revlon">Revlon</option>
+                        <option value="Clinique">Clinique</option>
+                        <option value="Estée Lauder">Estée Lauder</option>
+                        <option value="Urban Decay">Urban Decay</option>
+                        <option value="Benefit">Benefit</option>
+                        <option value="Sephora Collection">Sephora Collection</option>
+                        <option value="Fenty Beauty">Fenty Beauty</option>
+                        <option value="Too Faced">Too Faced</option>
+                        <option value="Anastasia Beverly Hills">Anastasia Beverly Hills</option>
+                        <option value="Kylie Cosmetics">Kylie Cosmetics</option>
+                    </select>
+                    <div id="error-marca" style="font-weight: bold;"></div>
+                </li>
+
+                <!--MODELO-->
+                <li>
+                    <label for="form-modelo">Modelo:</label> 
+                    <input type="text" name="modelo" id="form-modelo" oninput="validarModelo()" required>
+                    <div id="error-modelo" style="font-weight: bold;"></div>
+                </li>
+
+                <!--PRECIO-->
+                <li>
+                    <label for="form-precio">Precio:</label> 
+                    <input type="number" name="precio" id="form-precio" step="0.01" oninput="validarPrecio()">
+                    <div id="error-precio" style="font-weight: bold;"></div>
+                </li>
+
+                <!--UNIDADES-->
+                <li>
+                    <label for="form-unidades">Unidades:</label> 
+                    <input type="number" name="unidades" id="form-unidades" oninput="validarUnidades()">
+                    <div id="error-unidades" style="font-weight: bold;"></div>
+                </li>
+
+                <!--DETALLES-->
+                <li>
+                    <label for="form-detalles">Detalles:</label><br>
+                    <textarea name="detalles" rows="4" cols="60" id="form-detalles" placeholder="Escribe detalles del producto..." oninput="validarDetalles()"></textarea>
+                    <div id="error-detalles" style="font-weight: bold;"></div>
+                </li>
+
+                <!--IMAGEN-->
+                <li>
+                    <label for="form-imagen">Imagen:</label> 
+                    <input type="file" name="imagen" id="form-imagen" accept="image/*" onchange="verificarImagen()">
+                </li>
+            </ul>
+        </fieldset>
+
+        <p>
+            <input type="submit" value="Registrar Producto">
+            <input type="reset" value="Limpiar">
+        </p>
+    </form>
+</body>
+</html>
