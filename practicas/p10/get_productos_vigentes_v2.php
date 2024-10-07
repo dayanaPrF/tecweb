@@ -23,6 +23,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>Productos Vigentes</title>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src = "editarDatos.js"></script>
 	</head>
 	<body>
 		<h3>PRODUCTOS VIGENTES</h3>
@@ -58,7 +59,7 @@
 						<td><?= utf8_encode($row['detalles']) ?></td>
 						<td><img src="<?= $row['imagen'] ?>" alt="Imagen de <?= $row['nombre'] ?>" /></td>
 						<td>
-							<a href="modificar_producto.php?id=<?= $row['id'] ?>" class="btn btn-warning">Modificar</a> <!-- Boton para modificar -->
+							<input type="button" value="Modificar" onclick="show(event)"/>
 						</td>
 					</tr>
 					<?php endforeach; ?>
