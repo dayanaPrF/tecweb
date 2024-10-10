@@ -34,20 +34,20 @@
                     <label for="form-marca">Marca:</label>
                     <select name="marca" id="form-marca" onchange="validarMarca()" required>
                         <option value="">Selecciona una marca</option>
-                        <option value="Maybelline" value="<?(isset($_POST['marca']) && $_POST['marca']==='Maybelline')?'selected':''?>">Maybelline</option>
-                        <option value="LOreal" value="<?(isset($_POST['marca']) && $_POST['marca']==='LOreal')?'selected':''?>">L'Oreal</option>
-                        <option value="MAC" value="<?(isset($_POST['marca']) && $_POST['marca']==='MAC')?'selected':''?>">MAC</option>
-                        <option value="NARS" value="<?(isset($_POST['marca']) && $_POST['marca']==='NARS')?'selected':''?>">NARS</option>
-                        <option value="Revlon" value="<?(isset($_POST['marca']) && $_POST['marca']==='Revlon')?'selected':''?>">Revlon</option>
-                        <option value="Clinique" value="<?(isset($_POST['marca']) && $_POST['marca']==='Clinique')?'selected':''?>">Clinique</option>
-                        <option value="Estée Lauder" value="<?(isset($_POST['marca']) && $_POST['marca']==='Estée Lauder')?'selected':''?>">Estée Lauder</option>
-                        <option value="Urban Decay" value="<?(isset($_POST['marca']) && $_POST['marca']==='Urban Decay')?'selected':''?>">Urban Decay</option>
-                        <option value="Benefit" value="<?(isset($_POST['marca']) && $_POST['marca']==='Benefit')?'selected':''?>">Benefit</option>
-                        <option value="Sephora Collection" value="<?(isset($_POST['marca']) && $_POST['marca']==='Sephora Collection')?'selected':''?>">Sephora Collection</option>
-                        <option value="Fenty Beauty" value="<?(isset($_POST['marca']) && $_POST['marca']==='Fenty Beauty')?'selected':''?>">Fenty Beauty</option>
-                        <option value="Too Faced" value="<?(isset($_POST['marca']) && $_POST['marca']==='Too Faced')?'selected':''?>">Too Faced</option>
-                        <option value="Anastasia Beverly Hills" value="<?(isset($_POST['marca']) && $_POST['marca']==='Anastasia Beverly Hills')?'selected':''?>">Anastasia Beverly Hills</option>
-                        <option value="Kylie Cosmetics" value="<?(isset($_POST['marca']) && $_POST['marca']==='Kylie Cosmetics')?'selected':''?>">Kylie Cosmetics</option>
+                        <option value="Funko Pop" value="<?(isset($_POST['marca']) && $_POST['marca']==='Funko Pop')?'selected':''?>">Funko Pop!</option>
+                        <option value="Hasbro" value="<?(isset($_POST['marca']) && $_POST['marca']==='Hasbro')?'selected':''?>">Hasbro</option>
+                        <option value="Nendoroid" value="<?(isset($_POST['marca']) && $_POST['marca']==='Nendoroid')?'selected':''?>">Nendoroid</option>
+                        <option value="Bandai" value="<?(isset($_POST['marca']) && $_POST['marca']==='Bandai')?'selected':''?>">Bandai</option>
+                        <option value="Nintendo" value="<?(isset($_POST['marca']) && $_POST['marca']==='Nintendo')?'selected':''?>">Nintendo</option>
+                        <option value="Kotobukiya" value="<?(isset($_POST['marca']) && $_POST['marca']==='Kotobukiya')?'selected':''?>">Kotobukiya</option>
+                        <option value="Disney Store" value="<?(isset($_POST['marca']) && $_POST['marca']==='Disney Store')?'selected':''?>">Disney Store</option>
+                        <option value="Sanrio" value="<?(isset($_POST['marca']) && $_POST['marca']==='Sanrio')?'selected':''?>">Sanrio</option>
+                        <option value="Aniplex" value="<?(isset($_POST['marca']) && $_POST['marca']==='Aniplex')?'selected':''?>">Aniplex+</option>
+                        <option value="Aurora World" value="<?(isset($_POST['marca']) && $_POST['marca']==='Aurora World')?'selected':''?>">Aurora World</option>
+                        <option value="The Amazing Digital Circus" value="<?(isset($_POST['marca']) && $_POST['marca']==='The Amazing Digital Circus')?'selected':''?>">The Amazing Digital Circus</option>
+                        <option value="Lego" value="<?(isset($_POST['marca']) && $_POST['marca']==='Lego')?'selected':''?>">Lego</option>
+                        <option value="Banpresto" value="<?(isset($_POST['marca']) && $_POST['marca']==='Banpresto')?'selected':''?>">Banpresto</option>
+                        <option value="Max Factory " value="<?(isset($_POST['marca']) && $_POST['marca']==='Max Factory ')?'selected':''?>">Max Factory </option>
                     </select>
                     <div id="error-marca" style="font-weight: bold;"></div>
                 </li>
