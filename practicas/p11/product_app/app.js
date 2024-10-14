@@ -127,6 +127,49 @@ function buscarProducto(e) {
     client.send("query=" + encodeURIComponent(resultado)); //Enviando como 'query'
 }
 
+// FUNCIÓN DE VALIDACIÓN
+function validarJson(productoJsonString) {
+    try {
+        // Intenta parsear el JSON
+        let jsonObject = JSON.parse(productoJsonString);
+
+        // Valida el nombre
+        if (typeof jsonObject.nombre !== 'string' || jsonObject.nombre.trim() === "" || jsonObject.nombre.length > 100) {
+            return { valido: false, mensaje: "El nombre es requerido y debe tener 100 caracteres o menos." };
+        }
+
+        // Valida la marca
+        if (typeof jsonObject.marca !== 'string' || jsonObject.marca.trim() === "" || !isMarcaValida(jsonObject.marca)) {
+            return { valido: false, mensaje: "La marca es requerida y debe seleccionarse de la lista de opciones." };
+        }
+
+        // Valida el modelo
+        if (typeof jsonObject.modelo !== 'string' || jsonObject.modelo.trim() === "" || jsonObject.modelo.length > 25 || !/^[a-zA-Z0-9\s]+$/.test(jsonObject.modelo)) {
+            return { valido: false, mensaje: "El modelo es requerido, debe ser alfanumérico y tener 25 caracteres o menos." };
+        }
+
+        // Valida el precio
+        if (typeof jsonObject.precio !== 'number' || jsonObject.precio <= 99.99) {
+            return { valido: false, mensaje: "El precio es requerido y debe ser mayor a 99.99." };
+        }
+
+        // Valida los detalles (opcional)
+        if (jsonObject.detalles && (typeof jsonObject.detalles !== 'string' || jsonObject.detalles.length > 250)) {
+            return { valido: false, mensaje: "Si se proporcionan, los detalles deben tener 250 caracteres o menos." };
+        }
+
+        // Valida las unidades
+        if (typeof jsonObject.unidades !== 'number' || jsonObject.unidades < 0) {
+            return { valido: false, mensaje: "Las unidades son requeridas y deben ser un número mayor o igual a 0." };
+        }
+
+        // Si todas las validaciones pasan, retorna un objeto válido
+        return { valido: true, jsonObject };
+    } catch (error) {
+        return { valido: false, mensaje: "El JSON proporcionado no es válido." };
+    }
+}
+
 
 // FUNCIÓN CALLBACK DE BOTÓN "Agregar Producto"
 function agregarProducto(e) {
@@ -134,6 +177,17 @@ function agregarProducto(e) {
 
     // SE OBTIENE DESDE EL FORMULARIO EL JSON A ENVIAR
     var productoJsonString = document.getElementById('description').value;
+
+    // SE VALIDA EL JSON
+    var validacion = validarJson(productoJsonString);
+    if (!validacion.valido) {
+        // Muestra el mensaje de error en el div "mensajeRespuesta"
+        const mensajeDiv = document.getElementById('mensajeRespuesta');
+        mensajeDiv.textContent = validacion.mensaje;
+        mensajeDiv.style.color = 'red'; // Color de texto rojo para error
+        return; // Sale de la función si la validación falla
+    }
+
     // SE CONVIERTE EL JSON DE STRING A OBJETO
     var finalJSON = JSON.parse(productoJsonString);
     // SE AGREGA AL JSON EL NOMBRE DEL PRODUCTO
@@ -194,3 +248,4 @@ function init() {
     var JsonString = JSON.stringify(baseJSON,null,2);
     document.getElementById("description").value = JsonString;
 }
+

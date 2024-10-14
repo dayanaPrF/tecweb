@@ -12,7 +12,7 @@
          * UN MENSAJE DE ÉXITO O DE ERROR, SEGÚN SEA EL CASO.
          */
 
-        //Extraer datos del objeto JSON
+        //Extraer datos del objeto JSONe 
         $nombre = $conexion->real_escape_string($jsonOBJ->nombre);
         $marca = $conexion->real_escape_string($jsonOBJ->marca);
         $modelo = $conexion->real_escape_string($jsonOBJ->modelo);
@@ -21,17 +21,17 @@
         $unidades = $conexion->real_escape_string($jsonOBJ->unidades);
         $ruta_imagen = $conexion->real_escape_string($jsonOBJ->imagen);
 
-
         $sql = "INSERT INTO productos (nombre, marca, modelo, precio, detalles, unidades, imagen) 
             VALUES ('$nombre', '$marca', '$modelo', $precio, '$detalles', $unidades, '$ruta_imagen')";
 
-        // Ejecutar la consulta y verificar el resultado
+        //Ejecutar la consulta y verificar el resultado
         if ($conexion->query($sql) === TRUE) {
             echo json_encode(['mensaje' => 'Producto insertado correctamente']);
         } else {
             echo json_encode(['mensaje' => 'Error: ' . $conexion->error]);
         }
 
-        $conexion->close(); //Cierra la conexión después de procesar
+
+        $conexion->close(); //Cierra la conexion despues de procesar
     }
 ?>
