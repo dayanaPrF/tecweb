@@ -139,7 +139,7 @@ function validarJson(productoJsonString) {
         }
 
         // Valida la marca
-        if (typeof jsonObject.marca !== 'string' || jsonObject.marca.trim() === "" || !isMarcaValida(jsonObject.marca)) {
+        if (typeof jsonObject.marca !== 'string' || jsonObject.marca.trim() === "") {
             return { valido: false, mensaje: "La marca es requerida y debe seleccionarse de la lista de opciones." };
         }
 
