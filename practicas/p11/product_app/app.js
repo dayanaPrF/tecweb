@@ -166,7 +166,8 @@ function validarJson(productoJsonString) {
         // Si todas las validaciones pasan, retorna un objeto válido
         return { valido: true, jsonObject };
     } catch (error) {
-        return { valido: false, mensaje: "El JSON proporcionado no es válido." };
+        //alert("Error: No se pudo registrar el producto"); // Muestra un alert en caso de error
+        return { valido: false, mensaje: "El JSON proporcionado no es válido." }; // Puedes mantener el retorno si lo necesitas
     }
 }
 
@@ -177,23 +178,22 @@ function agregarProducto(e) {
 
     // SE OBTIENE DESDE EL FORMULARIO EL JSON A ENVIAR
     var productoJsonString = document.getElementById('description').value;
-
-    // SE VALIDA EL JSON
-    var validacion = validarJson(productoJsonString);
-    if (!validacion.valido) {
-        // Muestra el mensaje de error en el div "mensajeRespuesta"
-        const mensajeDiv = document.getElementById('mensajeRespuesta');
-        mensajeDiv.textContent = validacion.mensaje;
-        mensajeDiv.style.color = 'red'; // Color de texto rojo para error
-        return; // Sale de la función si la validación falla
-    }
-
     // SE CONVIERTE EL JSON DE STRING A OBJETO
     var finalJSON = JSON.parse(productoJsonString);
     // SE AGREGA AL JSON EL NOMBRE DEL PRODUCTO
     finalJSON['nombre'] = document.getElementById('name').value;
     // SE OBTIENE EL STRING DEL JSON FINAL
     productoJsonString = JSON.stringify(finalJSON,null,2);
+
+     // SE VALIDA EL JSON
+     var validacion = validarJson(productoJsonString);
+     if (!validacion.valido) {
+         // Muestra el mensaje de error en el div "mensajeRespuesta"
+         const mensajeDiv = document.getElementById('mensajeRespuesta');
+         mensajeDiv.textContent = validacion.mensaje;
+         mensajeDiv.style.color = 'red'; // Color de texto rojo para error
+         return; // Sale de la función si la validación falla
+     }
 
     // SE CREA EL OBJETO DE CONEXIÓN ASÍNCRONA AL SERVIDOR
     var client = getXMLHttpRequest();
@@ -203,12 +203,15 @@ function agregarProducto(e) {
         // SE VERIFICA SI LA RESPUESTA ESTÁ LISTA Y FUE SATISFACTORIA
         if (client.readyState == 4 && client.status == 200) {
             console.log(client.responseText);
-
             // Mostrar el mensaje de respuesta en el div "mensajeRespuesta"
-            const mensajeDiv = document.getElementById('mensajeRespuesta');
+            //const mensaje = document.getElementById('mensajeRespuesta');
             const response = JSON.parse(client.responseText);
-            mensajeDiv.textContent = response.mensaje; //Muestra el mensaje de respuesta
-            mensajeDiv.style.color = response.mensaje.includes('Error') ? 'red' : 'green'; //Cambia el color del texto
+            //mensaje.textContent = response.mensaje; //Muestra el mensaje de respuesta
+            //mensaje.style.color = response.mensaje.includes('Error') ? 'red' : 'green'; //Cambia el color del texto
+            response.mensaje.includes('Error') ? alert("Error: No se pudo registrar el producto") : alert("Producto registrado exitosamente");
+            //const response = JSON.parse(client.responseText);
+            // Muestra una alerta con el mensaje de respuesta
+            //alert(response.mensaje); // Muestra el mensaje en una alerta
         }
     };
     client.send(productoJsonString);
