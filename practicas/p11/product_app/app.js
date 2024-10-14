@@ -130,7 +130,7 @@ function buscarProducto(e) {
 // FUNCIÓN DE VALIDACIÓN
 function validarJson(productoJsonString) {
     try {
-        // Intenta parsear el JSON
+        // Intenta parsear el JSON 
         let jsonObject = JSON.parse(productoJsonString);
 
         // Valida el nombre
