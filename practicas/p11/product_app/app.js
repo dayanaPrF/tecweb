@@ -15,7 +15,7 @@ function buscarID(e) {
      * http://qbit.com.mx/blog/2013/01/07/la-diferencia-entre-return-false-preventdefault-y-stoppropagation-en-jquery/#:~:text=PreventDefault()%20se%20utiliza%20para,escuche%20a%20trav%C3%A9s%20del%20DOM
      * https://www.geeksforgeeks.org/when-to-use-preventdefault-vs-return-false-in-javascript/
      */
-    e.preventDefault();
+    e.preventDefault(); //Modifica el formulario de manera personalizada
 
     // SE OBTIENE EL ID A BUSCAR
     var id = document.getElementById('search').value;
@@ -57,8 +57,76 @@ function buscarID(e) {
             }
         }
     };
+    //client.send("query=" + encodeURIComponent(id)); // Enviando como 'query'
     client.send("id="+id);
 }
+
+// FUNCION CALLBACK DE BOTON "Buscar"
+function buscarProducto(e) {
+    e.preventDefault(); // Previene el comportamiento predeterminado del formulario
+
+    document.getElementById("lista-productos").innerHTML = ''; //Limpiar lista de productos multiples
+    document.getElementById("productos").innerHTML = ''; //Limpiar tabla de un solo producto
+    
+    // SE OBTIENE EL RESULTADO A BUSCAR
+    var resultado = document.getElementById('search').value;
+
+    // SE CREA EL OBJETO DE CONEXION ASINCRONA AL SERVIDOR
+    var client = getXMLHttpRequest();
+    client.open('POST', './backend/read.php', true);
+    client.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    client.onreadystatechange = function () {
+        //SE VERIFICA SI LA RESPUESTA ESTÁ LISTA Y FUE SATISFACTORIA
+        if (client.readyState == 4 && client.status == 200) {
+            console.log('[CLIENTE]\n' + client.responseText);
+            
+            //SE OBTIENE EL OBJETO DE DATOS A PARTIR DE UN STRING JSON
+            let productos = JSON.parse(client.responseText);
+            
+            if (Array.isArray(productos) && productos.length === 1) {//Si solo hay un producto, mostrarlo en la tabla inferior
+                let producto = productos[0];
+                
+                let descripcion = `
+                    <li>precio: ${producto.precio}</li>
+                    <li>unidades: ${producto.unidades}</li>
+                    <li>modelo: ${producto.modelo}</li>
+                    <li>marca: ${producto.marca}</li>
+                    <li>detalles: ${producto.detalles}</li>
+                `;
+
+                let template = `
+                    <tr>
+                        <td>${producto.id}</td>
+                        <td>${producto.nombre}</td>
+                        <td><ul>${descripcion}</ul></td>
+                    </tr>
+                `;
+
+                document.getElementById("productos").innerHTML = template;
+
+            } else if (Array.isArray(productos) && productos.length > 1) {//Si hay varios productos, mostrarlos en la lista superior
+                let lista = document.getElementById("lista-productos");
+                lista.innerHTML = ''; //Limpiar la lista antes de agregar nuevos resultados
+
+                //li.innerHTML = '<h3>Resultados de busqueda:</h3>'
+                productos.forEach(producto => {
+                    let li = document.createElement('li');
+                    li.innerHTML = `
+                        <strong>${producto.nombre}</strong><br>
+                        Marca: ${producto.marca}<br>
+                        Detalles: ${producto.detalles}<br>
+                    `;
+                    lista.appendChild(li); //Agregar el elemento li a la lista
+                });
+            } else {
+                // Si no hay resultados, mostrar un mensaje
+                document.getElementById("lista-productos").innerHTML = '<li>No se encontraron productos.</li>';
+            }
+        }
+    };
+    client.send("query=" + encodeURIComponent(resultado)); //Enviando como 'query'
+}
+
 
 // FUNCIÓN CALLBACK DE BOTÓN "Agregar Producto"
 function agregarProducto(e) {

@@ -12,10 +12,13 @@
       
         <ul></ul>
         <form>
-          <input name="search" id="search" type="search" placeholder="ID">
-          <button type="submit" onclick="buscarID(event)">Buscar</button>
+          <input name="search" id="search" type="search" placeholder="Inserte nombre, marca o detalles">
+          <!--button type="submit" onclick="buscarID(event)">Buscar</button-->
+          <button type="submit" onclick="buscarProducto(event)">Buscar</button>
         </form>
     </nav>
+    <!--Contenedor para mostrar los resultados de busqueda-->
+    <div id="lista-productos"></div>
 
     <div>
       <div>
