@@ -166,8 +166,10 @@ function validarJson(productoJsonString) {
         // Si todas las validaciones pasan, retorna un objeto válido
         return { valido: true, jsonObject };
     } catch (error) {
-        //alert("Error: No se pudo registrar el producto"); // Muestra un alert en caso de error
-        return { valido: false, mensaje: "El JSON proporcionado no es válido." }; // Puedes mantener el retorno si lo necesitas
+        alert("Error: El formato JSON es inválido");
+        return;
+        //alert("Error: No se pudo registrar el producto"); //Muestra un alert en caso de error
+        //return { valido: false, mensaje: "El JSON proporcionado no es válido." }; // Puedes mantener el retorno si lo necesitas
     }
 }
 
@@ -176,10 +178,17 @@ function validarJson(productoJsonString) {
 function agregarProducto(e) {
     e.preventDefault();
 
+    
     // SE OBTIENE DESDE EL FORMULARIO EL JSON A ENVIAR
     var productoJsonString = document.getElementById('description').value;
     // SE CONVIERTE EL JSON DE STRING A OBJETO
-    var finalJSON = JSON.parse(productoJsonString);
+    try {
+        finalJSON = JSON.parse(productoJsonString);
+    } catch (error) {
+        alert("Error: El JSON no es valido. Verifica la sintaxis"); //Muestra una alerta en caso de error
+        return; // Detiene la función si el JSON es invalido
+    }
+    //var finalJSON = JSON.parse(productoJsonString);
     // SE AGREGA AL JSON EL NOMBRE DEL PRODUCTO
     finalJSON['nombre'] = document.getElementById('name').value;
     // SE OBTIENE EL STRING DEL JSON FINAL
@@ -203,18 +212,21 @@ function agregarProducto(e) {
         // SE VERIFICA SI LA RESPUESTA ESTÁ LISTA Y FUE SATISFACTORIA
         if (client.readyState == 4 && client.status == 200) {
             console.log(client.responseText);
-            // Mostrar el mensaje de respuesta en el div "mensajeRespuesta"
-            //const mensaje = document.getElementById('mensajeRespuesta');
-            const response = JSON.parse(client.responseText);
-            //mensaje.textContent = response.mensaje; //Muestra el mensaje de respuesta
-            //mensaje.style.color = response.mensaje.includes('Error') ? 'red' : 'green'; //Cambia el color del texto
-            response.mensaje.includes('Error') ? alert("Error: No se pudo registrar el producto") : alert("Producto registrado exitosamente");
-            //const response = JSON.parse(client.responseText);
-            // Muestra una alerta con el mensaje de respuesta
-            //alert(response.mensaje); // Muestra el mensaje en una alerta
+            var response = JSON.parse(client.responseText);
+            // Verificamos si existe una clave 'error' o 'mensaje' en la respuesta
+            if (response.error) {
+                alert("Error: " + response.error);
+            } else if (response.mensaje) {
+                alert(response.mensaje);
+            } else {
+                alert("Respuesta no reconocida");
+            }
+
+            // También puedes mostrar el mensaje en consola si lo deseas
+            console.log(response);
         }
-    };
-    client.send(productoJsonString);
+            };
+            client.send(productoJsonString);
 }
 
 // SE CREA EL OBJETO DE CONEXIÓN COMPATIBLE CON EL NAVEGADOR
