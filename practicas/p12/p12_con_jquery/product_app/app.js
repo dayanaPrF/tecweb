@@ -141,7 +141,7 @@ function agregarProducto() {
             alert("Error: El nombre es obligatorio");
             return;
         }
-        /*if (!modelo || /[^a-zA-Z0-9-]/.test(modelo)) {
+        if (!modelo || /[^a-zA-Z0-9\- ]/.test(modelo)) {
             alert("Error: El modelo no puede contener caracteres especiales");
             return;
         }
@@ -152,7 +152,7 @@ function agregarProducto() {
         if (unidades < 0) {
             alert("Error: Las unidades no pueden ser menores a 0");
             return;
-        }*/
+        }
         if (!nombre || !modelo || !precio || !unidades || !productData.marca || !productData.detalles || !productData.imagen) {
             alert("Error: Todos los campos son obligatorios");
             return;
