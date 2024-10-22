@@ -157,6 +157,7 @@ function agregarProducto() {
             alert("Error: Todos los campos son obligatorios");
             return;
         }
+        
         const postData = {
             id: $('#product-Id').val(),
             nombre: nombre,
