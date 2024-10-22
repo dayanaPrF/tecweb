@@ -154,16 +154,21 @@ function agregarProducto() {
 }
 
 
-
 function eliminarProducto() {
     $(document).on('click', '.product-delete', function() {
-        if(confirm('¿Estas seguro de eliminarlo?')){
-            let element = $(this)[0].parentElement.parentElement;
-            let id = $(element).attr('productId');
-            $.get('backend/product-delete.php', {id}, function(response){
+        let element = $(this)[0].parentElement.parentElement;
+        let id = $(element).attr('productId');
+        if (confirm(`¿Estás seguro de eliminar el producto con ID: ${id}?`)) {
+            $.get('backend/product-delete.php', { id }, function(response) {
+                let result = JSON.parse(response);
+                if (result.status === "success") {
+                    alert("Eliminado exitosamente");
+                } else {
+                    alert("Error al eliminar el producto: " + result.message);
+                }
                 listarProductos();
-                console.log(response);
-            })
+            });
         }
     });
 }
+
