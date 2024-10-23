@@ -132,54 +132,35 @@ function agregarProducto() {
             alert("Error: El JSON no está bien definido.");
             return;
         }
-        // Validaciones
-        const nombre = $('#name').val().trim();
-        const precio = productData.precio;
-        const unidades = productData.unidades;
-        const modelo = productData.modelo;
-        if (!nombre) {
-            alert("Error: El nombre es obligatorio");
-            return;
-        }
-        if (!modelo || /[^a-zA-Z0-9\- ]/.test(modelo)) {
-            alert("Error: El modelo no puede contener caracteres especiales");
-            return;
-        }
-        if (precio < 100) {
-            alert("Error: El precio debe ser mayor o igual a 100");
-            return;
-        }
-        if (unidades < 0) {
-            alert("Error: Las unidades no pueden ser menores a 0");
-            return;
-        }
-        if (!nombre || !modelo || !precio || !unidades || !productData.marca || !productData.detalles || !productData.imagen) {
-            alert("Error: Todos los campos son obligatorios");
-            return;
-        }
         
         const postData = {
             id: $('#product-Id').val(),
-            nombre: nombre,
+            nombre: $('#name').val().trim(),
             marca: productData.marca,
-            modelo: modelo,
-            precio: precio,
-            unidades: unidades,
+            modelo: productData.modelo,
+            precio: productData.precio,
+            unidades: productData.unidades,
             detalles: productData.detalles,
             imagen: productData.imagen
         };
         const jsonPostData = JSON.stringify(postData);
 
         let url = editar === false ? 'backend/product-add.php' : 'backend/product-edit.php';
-
-        console.log("Enviando a:", url);
-        console.log("Datos a enviar:", jsonPostData);
+        let template = '';
 
         $.post(url, jsonPostData, function(response) {
             //console.log(response);
-            //let result = JSON.parse(response);
+
             let result = typeof response === 'string' ? JSON.parse(response) : response;
-            console.log("Respuesta del servidor:", response);
+            template += `Status: `;
+            template += typeof result.status === 'string' ? result.status : JSON.stringify(result.status);
+            template += `<br>Message: `;
+            //let result = JSON.parse(response);
+            template += typeof result.message === 'string' ? result.message : JSON.stringify(result.message);
+            console.log(template);
+            $('#container').html(template);
+            $('#product-result').show();
+
             if (result.status === "success") {
                 alert("Registro exitoso");
                 listarProductos();
@@ -187,7 +168,7 @@ function agregarProducto() {
                 $('#description').val(JSON.stringify(baseJSON, null, 2));
                 editar = false;
             } else {
-                alert("Error al registrar el producto: " + result.message);
+                alert(result.message);
             }
         });
     });
@@ -198,9 +179,15 @@ function eliminarProducto() {
     $(document).on('click', '.product-delete', function() {
         let element = $(this)[0].parentElement.parentElement;
         let id = $(element).attr('productId');
+        let templete = ' ';
         if (confirm(`¿Estás seguro de eliminar el producto con ID: ${id}?`)) {
             $.get('backend/product-delete.php', { id }, function(response) {
                 let result = JSON.parse(response);
+                template = `Status: ${result.status}<br>Message: ${result.message}`;
+                console.log(template);
+                $('#container').html(template);
+                $('#product-result').show();
+                
                 if (result.status === "success") {
                     alert("Eliminado exitosamente");
                 } else {
