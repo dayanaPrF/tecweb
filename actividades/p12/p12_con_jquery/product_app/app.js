@@ -136,13 +136,14 @@ function agregarProducto() {
         const postData = {
             id: $('#product-Id').val(),
             nombre: $('#name').val().trim(),
-            marca: productData.marca,
-            modelo: productData.modelo,
-            precio: productData.precio,
-            unidades: productData.unidades,
-            detalles: productData.detalles,
-            imagen: productData.imagen
+            marca: $('#form-marca').val(),
+            modelo: $('#form-modelo').val().trim(),
+            precio: $('#form-precio').val(),
+            unidades: $('#form-unidades').val(),
+            detalles: $('#form-detalles').val(),
+            imagen: $('#form-imagen').val()
         };
+        console.log(postData);
         const jsonPostData = JSON.stringify(postData);
 
         let url = editar === false ? 'backend/product-add.php' : 'backend/product-edit.php';
@@ -160,7 +161,6 @@ function agregarProducto() {
             console.log(template);
             $('#container').html(template);
             $('#product-result').show();
-
             if (result.status === "success") {
                 alert("Registro exitoso");
                 listarProductos();
@@ -203,7 +203,8 @@ function editarProducto(){
     $(document).on('click', '.product-item', function(){
         let element = $(this)[0].parentElement.parentElement;
         let id = $(element).attr('productId');
-
+        //console.log(element);
+        //console.log(id);
         $.post('backend/product-single.php', { id }, function(response) {
             console.log(response);
             const producto = JSON.parse(response);
@@ -216,8 +217,15 @@ function editarProducto(){
                 detalles: producto.product.detalles,
                 imagen: producto.product.imagen
             }, null, 2);
-            $('#description').val(descripcionJSON);
             $('#product-Id').val(producto.product.id);
+            $('#name').val(producto.product.nombre);
+            $('#form-marca').val(producto.product.marca);
+            $('#form-modelo').val(producto.product.modelo);
+            $('#form-precio').val(producto.product.precio);
+            $('#form-unidades').val(producto.product.unidades);
+            $('#form-detalles').val(producto.product.detalles);
+            //$('#form-imagen').val(producto.product.imagen);
+            //$('#description').val(descripcionJSON);
             editar = true;
         });
     });

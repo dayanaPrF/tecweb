@@ -12,32 +12,6 @@
         // SE TRANSFORMA EL STRING DEL JSON A OBJETO
         $jsonOBJ = json_decode($producto);
 
-        //Validaciones del lado del servidor
-        /*if (empty($jsonOBJ->nombre)) {
-            $data['message'] = "Error, el nombre es obligatorio";
-            echo json_encode($data, JSON_PRETTY_PRINT);
-            exit;
-        }
-        if (empty($jsonOBJ->modelo) || !preg_match('/^[a-zA-Z0-9\- ]+$/', $jsonOBJ->modelo)) {
-            $data['message'] = "Error, el modelo no puede contener caracteres especiales";
-            echo json_encode($data, JSON_PRETTY_PRINT);
-            exit;
-        }
-        if ($jsonOBJ->precio < 100) {
-            $data['message'] = "Error, el precio debe ser mayor o igual a 100";
-            echo json_encode($data, JSON_PRETTY_PRINT);
-            exit;
-        }
-        if ($jsonOBJ->unidades < 0) {
-            $data['message'] = "Error, las unidades no pueden ser menores a 0";
-            echo json_encode($data, JSON_PRETTY_PRINT);
-            exit;
-        }
-        if (empty($jsonOBJ->marca) || empty($jsonOBJ->detalles) || empty($jsonOBJ->imagen)) {
-            $data['message'] = "Error, todos los campos son obligatorios";
-            echo json_encode($data, JSON_PRETTY_PRINT);
-            exit;
-        }*/
 
         // Validar que el producto no exista previamente en la base de datos
         $sql = "SELECT * FROM productos WHERE nombre = '{$jsonOBJ->nombre}' AND eliminado = 0";

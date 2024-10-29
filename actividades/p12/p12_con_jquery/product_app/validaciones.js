@@ -1,14 +1,26 @@
-function validarNombre(){
-    var nombre = $('#name').val();
+function validarNombre() {
+    const nombre = $('#name').val();
     $('#product-result').hide();
+
     if (nombre.length > 100) {
-        $('#container').html("El nombre es demasiado largo");
+        $('#container').text('El nombre es demasiado largo');
         $('#product-result').show();
     } else if (nombre.trim() === "") {
-        $('#container').html("Por favor inserte un nombre");
+        $('#container').text('Por favor inserte un nombre');
         $('#product-result').show();
+    } else {
+        $.post('backend/product-name.php', nombre, function(response){
+            if(response.exists){
+                $('#container').text('Nombre ya existe, elige otro nombre');
+                $('#product-result').show();
+            }else if(!response.exists){
+                $('#container').text('');
+                $('#product-result').hiden();
+            }
+        });
     }
 }
+
 
 function validarMarca(){
     var marca = $('#form-marca').val();
