@@ -1,7 +1,7 @@
 function validarNombre() {
     const nombre = $('#name').val();
     $('#product-result').hide();
-
+    
     if (nombre.length > 100) {
         $('#container').text('El nombre es demasiado largo');
         $('#product-result').show();
@@ -9,17 +9,19 @@ function validarNombre() {
         $('#container').text('Por favor inserte un nombre');
         $('#product-result').show();
     } else {
-        $.post('backend/product-name.php', nombre, function(response){
-            if(response.exists){
+        $.get('backend/product-name.php', { nombre: nombre }, function(response) {
+            console.log(response);
+            if (response.exists) {
                 $('#container').text('Nombre ya existe, elige otro nombre');
                 $('#product-result').show();
-            }else if(!response.exists){
+            } else {
                 $('#container').text('');
-                $('#product-result').hiden();
+                $('#product-result').hide();
             }
         });
     }
 }
+
 
 
 function validarMarca(){
