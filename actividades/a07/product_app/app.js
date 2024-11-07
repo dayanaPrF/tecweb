@@ -209,23 +209,24 @@ function editarProducto(){
         $.post('backend/product-single.php', { id }, function(response) {
             console.log(response);
             const producto = JSON.parse(response);
-            $('#name').val(producto.product.nombre);
+            //alert(producto);
+            $('#name').val(producto.nombre);
             const descripcionJSON = JSON.stringify({
-                precio: producto.product.precio,
-                unidades: producto.product.unidades,
-                modelo: producto.product.modelo,
-                marca: producto.product.marca,
-                detalles: producto.product.detalles,
-                imagen: producto.product.imagen
+                precio: producto.precio,
+                unidades: producto.unidades,
+                modelo: producto.modelo,
+                marca: producto.marca,
+                detalles: producto.detalles,
+                imagen: producto.imagen
             }, null, 2);
-            $('#product-Id').val(producto.product.id);
-            $('#name').val(producto.product.nombre);
-            $('#form-marca').val(producto.product.marca);
-            $('#form-modelo').val(producto.product.modelo);
-            $('#form-precio').val(producto.product.precio);
-            $('#form-unidades').val(producto.product.unidades);
-            $('#form-detalles').val(producto.product.detalles);
-            //$('#form-imagen').val(producto.product.imagen);
+            $('#product-Id').val(producto.id);
+            $('#name').val(producto.nombre);
+            $('#form-marca').val(producto.marca);
+            $('#form-modelo').val(producto.modelo);
+            $('#form-precio').val(producto.precio);
+            $('#form-unidades').val(producto.unidades);
+            $('#form-detalles').val(producto.detalles);
+            //$('#form-imagen').val(producto.imagen);
             //$('#description').val(descripcionJSON);
             editar = true;
         });
