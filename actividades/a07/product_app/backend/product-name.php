@@ -1,6 +1,6 @@
 <?php
-    namespace ACTIVIDADES\DATABABASES;
+    namespace TECWEB\MYAPI;
     require_once 'myapi/Products.php';
-    $productos = new Products();
+    $productos = new Products('marketzone');
     $productos->getByName($_POST['nombre']);
 ?>

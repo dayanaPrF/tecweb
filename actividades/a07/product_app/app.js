@@ -34,7 +34,7 @@ function listarProductos(){
         url: 'backend/product-list.php',
         type: 'GET',
         success: function(response){
-            //console.log(response);
+            //alert(response);
             let products = JSON.parse(response);
             let template = '';
             products.forEach(product => {
