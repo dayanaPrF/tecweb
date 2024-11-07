@@ -1,15 +1,15 @@
 <?php 
-namespace ACTIVIDADES\DATABABASES;
-//use ACTIVIDADES\DATABABASE\DataBase as DataBase;
+namespace TECWEB\MYAPI;
+use TECWEB\MYAPI\DataBase;
 require_once __DIR__ . '/DataBase.php';
 
 class Products extends DataBase {
 
     private $response;
 
-    public function __construct($user = 'root', $pass = 'dayprzf24', $db = 'marketzone') {
+    public function __construct($db, $user = 'root', $pass = 'dayprzf24') {
         $this -> response = '';
-        parent::__construct ($user, $pass, $db);
+        parent::__construct ($db, $user, $pass);
     }
 
     public function add($producto) {
