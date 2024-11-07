@@ -151,7 +151,7 @@ function agregarProducto() {
 
         $.post(url, jsonPostData, function(response) {
             //console.log(response);
-            alert(response);
+            //alert(response);
             let result = typeof response === 'string' ? JSON.parse(response) : response;
             template += `Status: `;
             template += typeof result.status === 'string' ? result.status : JSON.stringify(result.status);
@@ -182,6 +182,7 @@ function eliminarProducto() {
         let templete = ' ';
         if (confirm(`¿Estás seguro de eliminar el producto con ID: ${id}?`)) {
             $.get('backend/product-delete.php', { id }, function(response) {
+                //alert(response);
                 let result = JSON.parse(response);
                 template = `Status: ${result.status}<br>Message: ${result.message}`;
                 console.log(template);

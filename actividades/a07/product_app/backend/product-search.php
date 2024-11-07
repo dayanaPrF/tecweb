@@ -1,5 +1,10 @@
 <?php
-    include_once __DIR__.'/database.php';
+    namespace ACTIVIDADES\DATABABASES;
+    require_once 'myapi/Products.php';
+    $productos = new Products();
+    $productos->search($_GET['search']);
+    echo $productos->getData();
+    /*include_once __DIR__.'/database.php';
 
     // SE CREA EL ARREGLO QUE SE VA A DEVOLVER EN FORMA DE JSON
     $data = array();
@@ -28,5 +33,5 @@
     } 
     
     // SE HACE LA CONVERSIÓN DE ARRAY A JSON
-    echo json_encode($data, JSON_PRETTY_PRINT);
+    echo json_encode($data, JSON_PRETTY_PRINT);*/
 ?>
