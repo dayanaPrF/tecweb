@@ -1,4 +1,6 @@
 <?php
+namespace ACTIVIDADES\DATABABASES;
+
 abstract class DataBase {
 
     protected $conexion;

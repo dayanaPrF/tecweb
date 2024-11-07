@@ -143,7 +143,7 @@ function agregarProducto() {
             detalles: $('#form-detalles').val(),
             imagen: $('#form-imagen').val()
         };
-        console.log(postData);
+        //console.log(postData);
         const jsonPostData = JSON.stringify(postData);
 
         let url = editar === false ? 'backend/product-add.php' : 'backend/product-edit.php';
@@ -151,7 +151,7 @@ function agregarProducto() {
 
         $.post(url, jsonPostData, function(response) {
             //console.log(response);
-
+            alert(response);
             let result = typeof response === 'string' ? JSON.parse(response) : response;
             template += `Status: `;
             template += typeof result.status === 'string' ? result.status : JSON.stringify(result.status);

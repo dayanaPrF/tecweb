@@ -1,5 +1,10 @@
 <?php
-    include_once __DIR__.'/database.php';
+    namespace ACTIVIDADES\DATABABASES;
+    require_once 'myapi/Products.php';
+    $productos = new Products();
+    $productos -> add(json_decode(file_get_contents('php://input'),true));
+    echo $productos -> getData();
+    /*include_once __DIR__.'/database.php';
 
     // SE OBTIENE LA INFORMACIÓN DEL PRODUCTO ENVIADA POR EL CLIENTE
     $producto = file_get_contents('php://input');
@@ -41,5 +46,5 @@
     }
 
     // SE HACE LA CONVERSIÓN DE ARRAY A JSON
-    echo json_encode($data, JSON_PRETTY_PRINT);
+    echo json_encode($data, JSON_PRETTY_PRINT);*/
 ?>
