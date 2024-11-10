@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInita9bf334bba89ecdd81161fa2468e12d5
+class ComposerStaticInit92436364a86bdd113cb305bd919114f5
 {
     public static $prefixLengthsPsr4 = array (
         'T' => 
@@ -16,7 +16,7 @@ class ComposerStaticInita9bf334bba89ecdd81161fa2468e12d5
     public static $prefixDirsPsr4 = array (
         'TECWEB\\MYAPI\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/p13/product_app/backend/myapi',
+            0 => __DIR__ . '/../..' . '/myapi',
         ),
     );
 
@@ -27,9 +27,9 @@ class ComposerStaticInita9bf334bba89ecdd81161fa2468e12d5
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInita9bf334bba89ecdd81161fa2468e12d5::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInita9bf334bba89ecdd81161fa2468e12d5::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInita9bf334bba89ecdd81161fa2468e12d5::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit92436364a86bdd113cb305bd919114f5::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit92436364a86bdd113cb305bd919114f5::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit92436364a86bdd113cb305bd919114f5::$classMap;
 
         }, null, ClassLoader::class);
     }
