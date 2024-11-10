@@ -5,7 +5,6 @@ use TECWEB\MYAPI\DataBase;
 require_once __DIR__ . '/../DataBase.php';
 
 class Read extends DataBase {
-    private $data;
 
     public function __construct($db, $user='root', $pass='dayprzf24') {
         $this->data = array();

@@ -3,7 +3,7 @@ namespace TECWEB\MYAPI;
 
 abstract class DataBase {
     protected $conexion;
-    protected $response;
+    protected $data;
 
     public function __construct($db, $user, $pass) {
         $this->conexion = @mysqli_connect(
@@ -19,11 +19,11 @@ abstract class DataBase {
         if(!$this->conexion) {
             die('¡Base de datos NO conectada!');
         }
-        $this->response = [];
+        $this->data = [];
     }
 
     public function getData() {
-        return json_encode($this->response);
+        return json_encode($this->data);
     }
 }
 ?>
