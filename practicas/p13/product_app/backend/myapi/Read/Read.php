@@ -6,9 +6,8 @@ require_once __DIR__ . '/../DataBase.php';
 
 class Read extends DataBase {
 
-    public function __construct($db, $user='root', $pass='dayprzf24') {
-        $this->data = array();
-        parent::__construct($db, $user, $pass);
+    public function __construct($db) {
+        parent::__construct($db);
     }
 
     public function list() {
@@ -28,7 +27,7 @@ class Read extends DataBase {
         } else {
             die('Query Error: ' . mysqli_error($this->conexion));
         }
-        $this->response = $data;
+        $this->data = $data;
     }
 
     public function search($search) {
@@ -49,7 +48,7 @@ class Read extends DataBase {
             die('Query Error: ' . mysqli_error($this->conexion));
         }
         // Asignar los resultados a la propiedad de respuesta
-        $this->response = $data;
+        $this->data = $data;
     }
 
     public function single($id) {
@@ -82,7 +81,7 @@ class Read extends DataBase {
         }
 
         // Asignar los resultados a la propiedad de respuesta
-        $this->response = $data;
+        $this->data = $data;
     }
 
 }

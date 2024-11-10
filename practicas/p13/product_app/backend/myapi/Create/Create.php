@@ -6,9 +6,8 @@ require_once __DIR__ . '/../DataBase.php';
 
 class Create extends DataBase {
 
-    public function __construct($db, $user='root', $pass='dayprzf24') {
-        $this->data = array();
-        parent::__construct($db, $user, $pass);
+    public function __construct($db) {
+        parent::__construct($db);
     }
 
     public function add($producto) {
@@ -37,7 +36,7 @@ class Create extends DataBase {
         }
         $result->free();
         $this->conexion->close();
-        $this->response = $data;
+        $this->data = $data;
     }
 
 

@@ -206,6 +206,7 @@ function editarProducto(){
         let id = $(element).attr('productId');
         //console.log(element);
         //console.log(id);
+        editar = true;
         $.post('backend/product-single.php', { id }, function(response) {
             console.log(response);
             const producto = JSON.parse(response);
@@ -228,7 +229,7 @@ function editarProducto(){
             $('#form-detalles').val(producto.detalles);
             //$('#form-imagen').val(producto.imagen);
             //$('#description').val(descripcionJSON);
-            editar = true;
+            
         });
     });
 

@@ -6,9 +6,8 @@ require_once __DIR__ . '/../DataBase.php';
 
 class Delete extends DataBase {
 
-    public function __construct($db, $user='root', $pass='dayprzf24') {
-        $this->data = array();
-        parent::__construct($db, $user, $pass);
+    public function __construct($db) {
+        parent::__construct($db);
     }
 
     public function delete($id) {
@@ -23,7 +22,7 @@ class Delete extends DataBase {
         } else {
             $data['message'] = 'ERROR: No se ejecutó ' . $sql . '. ' . mysqli_error($this->conexion);
         }
-        $this->response = $data;
+        $this->data = $data;
         $this->conexion->close();
     }
 }

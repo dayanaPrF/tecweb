@@ -6,9 +6,8 @@ require_once __DIR__ . '/../DataBase.php';
 
 class Update extends DataBase {
 
-    public function __construct($db, $user='root', $pass='dayprzf24') {
-        $this->data = array();
-        parent::__construct($db, $user, $pass);
+    public function __construct($db) {
+        parent::__construct($db);
     }
 
     public function edit($jsonOBJ) {
@@ -55,7 +54,7 @@ class Update extends DataBase {
             }
         }
         // Responder con el estado de la operación
-        $this->response = $data;
+        $this->data = $data;
     }
 
 }
