@@ -13,26 +13,51 @@ class Update extends DataBase {
     }
 
     public function edit($jsonOBJ) {
-        // SE CREA EL ARREGLO QUE SE VA A DEVOLVER EN FORMA DE JSON
-        $this->data = array(
-            'status'  => 'error',
-            'message' => 'La consulta falló'
+        $data = array(
+            'status' => 'error',
+            'message' => 'Datos incompletos o inválidos'
         );
-        // SE VERIFICA HABER RECIBIDO EL ID
-        if( isset($jsonOBJ->id) ) {
-            // SE REALIZA LA QUERY DE BÚSQUEDA Y AL MISMO TIEMPO SE VALIDA SI HUBO RESULTADOS
-            $sql =  "UPDATE productos SET nombre='{$jsonOBJ->nombre}', marca='{$jsonOBJ->marca}',";
-            $sql .= "modelo='{$jsonOBJ->modelo}', precio={$jsonOBJ->precio}, detalles='{$jsonOBJ->detalles}',"; 
-            $sql .= "unidades={$jsonOBJ->unidades}, imagen='{$jsonOBJ->imagen}' WHERE id={$jsonOBJ->id}";
-            $this->conexion->set_charset("utf8");
-            if ( $this->conexion->query($sql) ) {
-                $this->data['status'] =  "success";
-                $this->data['message'] =  "Producto actualizado";
-            } else {
-                $this->data['message'] = "ERROR: No se ejecuto $sql. " . mysqli_error($this->conexion);
+
+        if (!empty($jsonOBJ)) {
+            // Asegurarse de que los campos necesarios existen
+            if (isset($jsonOBJ->id) && isset($jsonOBJ->nombre)) {
+                $id = $jsonOBJ->id;
+                $nombre = $jsonOBJ->nombre;
+
+                // Verificar si el nombre del producto ya existe (excluyendo el producto actual)
+                $sql = "SELECT * FROM productos WHERE nombre = '{$nombre}' AND id != {$id} AND eliminado = 0";
+                $result = $this->conexion->query($sql);
+
+                if ($result->num_rows == 0) {
+                    $this->conexion->set_charset("utf8");
+
+                    // Actualizar el producto en la base de datos
+                    $sql = "UPDATE productos SET 
+                        nombre = '{$nombre}', 
+                        marca = '{$jsonOBJ->marca}', 
+                        modelo = '{$jsonOBJ->modelo}', 
+                        precio = {$jsonOBJ->precio}, 
+                        detalles = '{$jsonOBJ->detalles}', 
+                        unidades = {$jsonOBJ->unidades}, 
+                        imagen = '{$jsonOBJ->imagen}' 
+                        WHERE id = {$id}";
+
+                    if ($this->conexion->query($sql) === TRUE) {
+                        $data['status'] = "success";
+                        $data['message'] = "Producto editado exitosamente";
+                    } else {
+                        $data['message'] = "ERROR: No se ejecutó $sql. " . mysqli_error($this->conexion);
+                    }
+                } else {
+                    $data['message'] = "Ya existe un producto con ese nombre";
+                }
+
+                $result->free();
             }
-            $this->conexion->close();
         }
+        // Responder con el estado de la operación
+        $this->response = $data;
     }
+
 }
 ?>
