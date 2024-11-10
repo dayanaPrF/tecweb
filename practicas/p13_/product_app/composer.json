@@ -2,7 +2,7 @@
     "name": "dayan/product_app",
     "autoload": {
         "psr-4": {
-            "TECWEB\\MYAPI\\": "backend/"
+            "TECWEB\\MYAPI\\": "p13/product_app/backend/myapi"
         }
     },
     "authors": [
