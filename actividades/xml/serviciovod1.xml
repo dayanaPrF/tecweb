@@ -54,5 +54,49 @@
                 </titulo>
             </genero>
         </peliculas>
+        <programas>
+            <genero>
+                <nombre>Drama</nombre>
+                <titulo>
+                    <nombre>Juego de Tronos</nombre>
+                    <duracion>8 temporadas</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>Breaking Bad</nombre>
+                    <duracion>5 temporadas</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>Peaky Blinders</nombre>
+                    <duracion>6 temporadas</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>This Is Us</nombre>
+                    <duracion>5 temporadas</duracion>
+                </titulo>
+            </genero>
+            <genero>
+                <nombre>Romance</nombre>
+                <titulo>
+                    <nombre>Un amor tan hermoso</nombre>
+                    <duracion>1 temporada</duracion>
+                    
+                </titulo>
+                <titulo>
+                    <nombre>Las inclemencias del amor</nombre>
+                    <duracion>1 temporada</duracion>
+                    
+                </titulo>
+                <titulo>
+                    <nombre>Love Alarm</nombre>
+                    <duracion>2 temporadas</duracion>
+                    
+                </titulo>
+                <titulo>
+                    <nombre>Goblin</nombre>
+                    <duracion>1 temporada</duracion>
+                    
+                </titulo>
+            </genero>
+        </programas>
     </contenido>
 </CatalogoVOD>
