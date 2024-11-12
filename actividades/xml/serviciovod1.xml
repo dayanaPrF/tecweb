@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CatalogoVOD>
+    <cuenta>
+        <correo>correoejemplo@ejemplo.com</correo>
+        <perfiles>
+            <perfil>
+                <usuario>Miranda</usuario>
+                <idioma>Español</idioma>
+            </perfil>
+            <perfil>
+                <usuario>Daniel</usuario>
+                <idioma>Frances</idioma>
+            </perfil>
+        </perfiles>
+    </cuenta>
+    <contenido>
+        <peliculas>
+            <genero>
+                <nombre>Terror</nombre>
+                <titulo>
+                    <nombre>La sustancia</nombre>
+                    <duracion>140 minutos</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>¡Huye!</nombre>
+                    <duracion>104 minutos</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>Inmaculada</nombre>
+                    <duracion>90 minutos</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>No te muevas</nombre>
+                    <duracion>92 minutos</duracion>
+                </titulo>
+            </genero>
+            <genero>
+                <nombre>Drama</nombre>
+                <titulo>
+                    <nombre>Tipos de Gentileza</nombre>
+                    <duracion>160 minutos</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>Parasito</nombre>
+                    <duracion>132 minutos</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>The Fallout: La vida despues</nombre>
+                    <duracion>92 minutos</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>Romper el circulo</nombre>
+                    <duracion>130 minutos</duracion>
+                </titulo>
+            </genero>
+        </peliculas>
+        <programas>
+            <genero>
+                <nombre>Drama</nombre>
+                <titulo>
+                    <nombre>Juego de Tronos</nombre>
+                    <duracion>8 temporadas</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>Breaking Bad</nombre>
+                    <duracion>5 temporadas</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>Peaky Blinders</nombre>
+                    <duracion>6 temporadas</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>This Is Us</nombre>
+                    <duracion>5 temporadas</duracion>
+                </titulo>
+            </genero>
+            <genero>
+                <nombre>Romance</nombre>
+                <titulo>
+                    <nombre>Un amor tan hermoso</nombre>
+                    <duracion>1 temporada</duracion>
+                    
+                </titulo>
+                <titulo>
+                    <nombre>Las inclemencias del amor</nombre>
+                    <duracion>1 temporada</duracion>
+                    
+                </titulo>
+                <titulo>
+                    <nombre>Love Alarm</nombre>
+                    <duracion>2 temporadas</duracion>
+                    
+                </titulo>
+                <titulo>
+                    <nombre>Goblin</nombre>
+                    <duracion>1 temporada</duracion>
+                    
+                </titulo>
+            </genero>
+        </programas>
+    </contenido>
+</CatalogoVOD>
