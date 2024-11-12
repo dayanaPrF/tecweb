@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CatalogoVOD>
+    <cuenta correo="correoejemplo@ejemplo.com">
+        <perfiles>
+            <perfil usuario="Miranda" idioma="Español" />
+            <perfil usuario="Daniel" idioma="Frances" />
+        </perfiles>
+    </cuenta>
+    <contenido>
+        <peliculas>
+            <genero nombre="Terror">
+                <titulo nombre="La sustancia" duracion="140 minutos" />
+                <titulo nombre="¡Huye!" duracion="104 minutos" />
+                <titulo nombre="Inmaculada" duracion="90 minutos" />
+                <titulo nombre="No te muevas" duracion="92 minutos" />
+            </genero>
+            <genero nombre="Drama">
+                <titulo nombre="Tipos de Gentileza" duracion="160 minutos" />
+                <titulo nombre="Parasito" duracion="132 minutos" />
+                <titulo nombre="The Fallout: La vida despues" duracion="92 minutos" />
+                <titulo nombre="Romper el circulo" duracion="130 minutos" />
+            </genero>
+        </peliculas>
+        <programas>
+            <genero nombre="Drama">
+                <titulo nombre="Juego de Tronos" duracion="8 temporadas" />
+                <titulo nombre="Breaking Bad" duracion="5 temporadas" />
+                <titulo nombre="Peaky Blinders" duracion="6 temporadas" />
+                <titulo nombre="This Is Us" duracion="5 temporadas" />
+            </genero>
+            <genero nombre="Romance">
+                <titulo nombre="Un amor tan hermoso" duracion="1 temporada" />
+                <titulo nombre="Las inclemencias del amor" duracion="1 temporada" />
+                <titulo nombre="Love Alarm" duracion="2 temporadas" />
+                <titulo nombre="Goblin" duracion="1 temporada" />
+            </genero>
+        </programas>
+    </contenido>
+</CatalogoVOD>
