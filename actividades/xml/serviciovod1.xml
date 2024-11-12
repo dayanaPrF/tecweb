@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CatalogoVOD>
+    <cuenta>
+        <correo>correoejemplo@ejemplo.com</correo>
+        <perfiles>
+            <perfil>
+                <usuario>Miranda</usuario>
+                <idioma>Español</idioma>
+            </perfil>
+            <perfil>
+                <usuario>Daniel</usuario>
+                <idioma>Frances</idioma>
+            </perfil>
+        </perfiles>
+    </cuenta>
+    <contenido>
+        <peliculas>
+            <genero>
+                <nombre>Terror</nombre>
+                <titulo>
+                    <nombre>La sustancia</nombre>
+                    <duracion>140 minutos</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>¡Huye!</nombre>
+                    <duracion>104 minutos</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>Inmaculada</nombre>
+                    <duracion>90 minutos</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>No te muevas</nombre>
+                    <duracion>92 minutos</duracion>
+                </titulo>
+            </genero>
+            <genero>
+                <nombre>Drama</nombre>
+                <titulo>
+                    <nombre>Tipos de Gentileza</nombre>
+                    <duracion>160 minutos</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>Parasito</nombre>
+                    <duracion>132 minutos</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>The Fallout: La vida despues</nombre>
+                    <duracion>92 minutos</duracion>
+                </titulo>
+                <titulo>
+                    <nombre>Romper el circulo</nombre>
+                    <duracion>130 minutos</duracion>
+                </titulo>
+            </genero>
+        </peliculas>
+    </contenido>
+</CatalogoVOD>
